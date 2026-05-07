@@ -6,7 +6,7 @@
 import { useState, useMemo, useCallback, useRef, useEffect } from "react";
 import { calculateSoleTrader, SoleTraderInputs, SoleTraderOutputs } from "@/lib/sole-trader-calculator";
 import { track } from "@/analytics/events";
-import { generateSessionId } from "@/lib/session";
+const generateSessionId = () => Math.random().toString(36).substring(2, 15);
 
 const DEFAULT_INPUTS: SoleTraderInputs = {
   selfIncome: 0,

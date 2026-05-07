@@ -8,9 +8,9 @@
 'use client'
 
 import React from 'react'
-import { SegmentedControl } from '../../ui/SegmentedControl'
-import { InputField }       from '../../ui/InputField'
-import { useCalculatorStore } from '../../../lib/store/calculator.store'
+import { SegmentedControl } from './SegmentedControl'
+import { InputField }       from './InputField'
+import { useCalculatorStore } from '@/shared/store/calculator.store'
 
 const TYPE_OPTIONS = [
   { label: '% of salary', value: 'percentage' },

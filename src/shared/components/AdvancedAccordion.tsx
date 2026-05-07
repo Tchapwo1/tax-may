@@ -15,8 +15,8 @@ import { Accordion }          from '../../ui/Accordion'
 import { StudentLoanSelect }  from './StudentLoanSelect'
 import { PensionInput }       from './PensionInput'
 import { ChildBenefitInput }  from './ChildBenefitInput'
-import { ScottishToggle, BlindAllowanceToggle } from './OtherToggles'
-import { useCalculatorStore } from '../../../lib/store/calculator.store'
+import { ScottishToggle, BlindAllowanceToggle } from '@/features/sole-trader/components/OtherToggles'
+import { useCalculatorStore } from '@/shared/store/calculator.store'
 
 function useAdvancedActiveCount(): number {
   const input = useCalculatorStore(s => s.input)

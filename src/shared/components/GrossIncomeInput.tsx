@@ -11,8 +11,8 @@
 'use client'
 
 import React, { useState } from 'react'
-import { InputField } from '../ui/InputField'
-import { useCalculatorStore } from '../../lib/store/calculator.store'
+import { InputField } from './InputField'
+import { useCalculatorStore } from '@/shared/store/calculator.store'
 
 export function GrossIncomeInput() {
   const grossIncome    = useCalculatorStore(s => s.input.grossIncome)

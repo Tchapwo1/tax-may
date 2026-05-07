@@ -10,9 +10,9 @@
 
 import React from 'react'
 import { useRouter } from 'next/navigation'
-import { Select } from '../ui/Select'
-import { useCalculatorStore } from '../../lib/store/calculator.store'
-import { encodeStateToURL } from '../../lib/store/url'
+import { Select } from './Select'
+import { useCalculatorStore } from '@/shared/store/calculator.store'
+import { encodeStateToURL } from '@/shared/store/url'
 
 interface TaxYearSelectProps {
   availableYears: string[]   // passed from server component

@@ -10,7 +10,7 @@
 
 import React from 'react'
 import { Toggle } from '../../ui/Toggle'
-import { useCalculatorStore } from '../../../lib/store/calculator.store'
+import { useCalculatorStore } from '@/shared/store/calculator.store'
 
 export function ScottishToggle() {
   const isScottish    = useCalculatorStore(s => s.input.isScottish)

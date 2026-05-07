@@ -8,9 +8,9 @@
 'use client'
 
 import React from 'react'
-import { Select }  from '../../ui/Select'
-import { Toggle }  from '../../ui/Toggle'
-import { useCalculatorStore } from '../../../lib/store/calculator.store'
+import { Select }  from './Select'
+import { Toggle }  from './Toggle'
+import { useCalculatorStore } from '@/shared/store/calculator.store'
 
 export function StudentLoanSelect() {
   const { studentLoan } = useCalculatorStore(s => s.input)

@@ -8,9 +8,9 @@
 'use client'
 
 import React from 'react'
-import { SegmentedControl } from '../ui/SegmentedControl'
-import { useCalculatorStore } from '../../lib/store/calculator.store'
-import type { EmploymentType } from '../../lib/calculator/types'
+import { SegmentedControl } from './SegmentedControl'
+import { useCalculatorStore } from '@/shared/store/calculator.store'
+import type { EmploymentType } from '@/features/sole-trader/calculator/sole-trader-calculator'
 
 const OPTIONS = [
   { label: 'Employed',      value: 'employed',      hint: 'PAYE — Class 1 NI' },

@@ -248,7 +248,7 @@ export const track = (event: AnalyticsEvent): void => {
     sessionStorage.setItem(event.name, Date.now().toString());
   }
 
-  _adapter(event.name, event.properties as Record<string, unknown>);
+  _adapter(event.name, event.properties as any);
 
   if (process.env.NODE_ENV === "development") {
     console.group(`[analytics] ${event.name}`);
@@ -260,15 +260,15 @@ export const track = (event: AnalyticsEvent): void => {
 // ── GA4 adapter example ───────────────────────────────────────────────────────
 
 export const ga4Adapter: AnalyticsAdapter = (name, properties) => {
-  if (typeof window === "undefined" || !window.gtag) return;
-  window.gtag("event", name, properties);
+  if (typeof window === "undefined" || !(window as any).gtag) return;
+  (window as any).gtag("event", name, properties);
 };
 
 // ── Segment adapter example ───────────────────────────────────────────────────
 
 export const segmentAdapter: AnalyticsAdapter = (name, properties) => {
-  if (typeof window === "undefined" || !window.analytics) return;
-  window.analytics.track(name, properties);
+  if (typeof window === "undefined" || !(window as any).analytics) return;
+  (window as any).analytics.track(name, properties);
 };
 
 // ── Funnel query (reference) ──────────────────────────────────────────────────
