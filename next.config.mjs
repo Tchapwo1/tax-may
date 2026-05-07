@@ -1,6 +1,10 @@
+import remarkGfm from 'remark-gfm';
+import createMDX from '@next/mdx';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -13,17 +17,17 @@ const nextConfig = {
       },
       {
         source: '/landlord-calculator.html',
-        destination: '/', // Redirect to home until migrated
+        destination: '/calculators/landlord',
         permanent: true,
       },
       {
         source: '/self-assessment-service.html',
-        destination: '/',
+        destination: '/calculators/self-assessment',
         permanent: true,
       },
       {
         source: '/self-employed-guides.html',
-        destination: '/',
+        destination: '/guides',
         permanent: true,
       },
       {
@@ -40,4 +44,12 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+const withMDX = createMDX({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [],
+  },
+});
+
+export default withMDX(nextConfig);

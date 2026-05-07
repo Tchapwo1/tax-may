@@ -71,3 +71,42 @@ export function payeMetadata(): Metadata {
     path: '/calculators/paye',
   });
 }
+
+/* Landlord Calculator Metadata */
+export function landlordMetadata(): Metadata {
+  return buildMetadata({
+    title: 'Landlord Tax Calculator 2025–26 — Section 24 Modelling',
+    description:
+      'Model your UK rental profit and tax liabilities. Fully accounts for Section 24 mortgage interest relief and marginal tax stacking on employment income.',
+    path: '/calculators/landlord',
+  });
+}
+/* Self-Assessment Calculator Metadata */
+export function selfAssessmentMetadata(): Metadata {
+  return buildMetadata({
+    title: 'Self-Assessment Tax Calculator 2025/26 — Flagship Modelling',
+    description:
+      'The definitive UK tax instrument. Model employment, self-employment, property, dividends, and interest in a single report. Accurate PA Taper & HICBC logic.',
+    path: '/calculators/self-assessment',
+  });
+}
+
+/* Comparison Matrix Metadata */
+export function soleTraderVsLtdMetadata(): Metadata {
+  return buildMetadata({
+    title: 'Sole Trader vs Limited Company Calculator 2025/26',
+    description:
+      'The definitive comparison for UK founders. Model your business profits and extraction strategy to find the most tax-efficient structure for your growth.',
+    path: '/calculators/sole-trader-vs-limited',
+  });
+}
+
+/* Knowledge Hub Metadata */
+export function guidesMetadata(): Metadata {
+  return buildMetadata({
+    title: 'Tax Knowledge Hub — Interactive Guides & Modelling',
+    description:
+      'Professional-grade guides and interactive modelling instruments to help you navigate the UK tax landscape with total confidence.',
+    path: '/guides',
+  });
+}

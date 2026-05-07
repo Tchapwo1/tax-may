@@ -14,9 +14,10 @@ export const Navbar = () => {
           </span>
         </Link>
         <div className="hidden md:flex gap-8 text-sm font-medium text-slate-400">
-          <Link href="/self-employed-guides.html" className="hover:text-white transition-colors">Guides</Link>
-          <Link href="/paye-calculator.html" className="hover:text-white transition-colors">PAYE</Link>
-          <Link href="/landlord-calculator.html" className="hover:text-white transition-colors">Landlords</Link>
+          <Link href="/guides" className="hover:text-white transition-colors">Guides</Link>
+          <Link href="/calculators/paye" className="hover:text-white transition-colors">PAYE</Link>
+          <Link href="/calculators/landlord" className="hover:text-white transition-colors">Landlords</Link>
+          <Link href="/calculators/self-assessment" className="px-4 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-[#FF4F00] hover:text-white transition-all border border-slate-700">Flagship SA</Link>
         </div>
       </div>
     </nav>

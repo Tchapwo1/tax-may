@@ -26,11 +26,11 @@ export default function LandingPage() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link href="/paye-calculator.html" className="flex items-center gap-2 px-8 py-4 rounded-xl bg-[#FF4F00] text-white font-semibold hover:bg-orange-600 transition-all shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 hover:-translate-y-0.5 active:translate-y-0">
+            <Link href="/calculators/paye" className="flex items-center gap-2 px-8 py-4 rounded-xl bg-[#FF4F00] text-white font-semibold hover:bg-orange-600 transition-all shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 hover:-translate-y-0.5 active:translate-y-0">
               Calculate PAYE Tax
               <ArrowRight className="w-5 h-5" />
             </Link>
-            <Link href="/self-employed-guides.html" className="flex items-center gap-2 px-8 py-4 rounded-xl bg-slate-800 text-white font-semibold hover:bg-slate-700 transition-all border border-slate-700 hover:border-slate-600">
+            <Link href="/guides" className="flex items-center gap-2 px-8 py-4 rounded-xl bg-slate-800 text-white font-semibold hover:bg-slate-700 transition-all border border-slate-700 hover:border-slate-600">
               Read the Guides
             </Link>
           </div>
@@ -47,7 +47,7 @@ export default function LandingPage() {
 
           <div className="grid md:grid-cols-3 gap-6">
             {/* PAYE Card */}
-            <Link href="/paye-calculator.html" className="group p-8 rounded-2xl bg-[#1E1E2F] border border-slate-800 hover:border-[#FF4F00]/50 transition-all hover:shadow-[0_0_30px_rgba(255,79,0,0.1)] relative overflow-hidden flex flex-col h-full">
+            <Link href="/calculators/paye" className="group p-8 rounded-2xl bg-[#1E1E2F] border border-slate-800 hover:border-[#FF4F00]/50 transition-all hover:shadow-[0_0_30px_rgba(255,79,0,0.1)] relative overflow-hidden flex flex-col h-full">
               <div className="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-[#FF4F00] mb-6 group-hover:scale-110 transition-transform">
                 <Calculator className="w-6 h-6" />
               </div>
@@ -61,7 +61,7 @@ export default function LandingPage() {
             </Link>
 
             {/* Landlord Card */}
-            <Link href="/landlord-calculator.html" className="group p-8 rounded-2xl bg-[#1E1E2F] border border-slate-800 hover:border-[#FF4F00]/50 transition-all hover:shadow-[0_0_30px_rgba(255,79,0,0.1)] relative overflow-hidden flex flex-col h-full">
+            <Link href="/calculators/landlord" className="group p-8 rounded-2xl bg-[#1E1E2F] border border-slate-800 hover:border-[#FF4F00]/50 transition-all hover:shadow-[0_0_30px_rgba(255,79,0,0.1)] relative overflow-hidden flex flex-col h-full">
               <div className="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-[#FF4F00] mb-6 group-hover:scale-110 transition-transform">
                 <Home className="w-6 h-6" />
               </div>
@@ -75,16 +75,16 @@ export default function LandingPage() {
             </Link>
 
             {/* Self Assessment Card */}
-            <Link href="/self-assessment-service.html" className="group p-8 rounded-2xl bg-[#1E1E2F] border border-slate-800 hover:border-[#FF4F00]/50 transition-all hover:shadow-[0_0_30px_rgba(255,79,0,0.1)] relative overflow-hidden flex flex-col h-full">
+            <Link href="/calculators/self-assessment" className="group p-8 rounded-2xl bg-[#1E1E2F] border border-slate-800 hover:border-[#FF4F00]/50 transition-all hover:shadow-[0_0_30px_rgba(255,79,0,0.1)] relative overflow-hidden flex flex-col h-full">
               <div className="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-[#FF4F00] mb-6 group-hover:scale-110 transition-transform">
                 <FileText className="w-6 h-6" />
               </div>
               <h3 className="text-xl font-bold text-white mb-3">Self Assessment</h3>
               <p className="text-slate-400 text-sm mb-8 leading-relaxed flex-grow">
-                Need help filing? Explore our professional self-assessment filing service to ensure compliance and avoid HMRC penalties.
+                Model your entire tax year. Explore our flagship composite modeller to handle employment, self-employment, property, and dividends.
               </p>
               <div className="flex items-center text-[#FF4F00] font-medium text-sm mt-auto">
-                View Service <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                Open Flagship <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
               </div>
             </Link>
           </div>
@@ -104,7 +104,7 @@ export default function LandingPage() {
               <p className="text-slate-400 mb-8 leading-relaxed text-lg">
                 Stop guessing. Learn exactly how the UK tax system works with our comprehensive, video-enhanced guides. Master the Personal Allowance, National Insurance, and the hidden 60% tax trap.
               </p>
-              <Link href="/self-employed-guides.html" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-slate-800 text-white font-medium hover:bg-slate-700 transition-colors border border-slate-600">
+              <Link href="/guides" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-slate-800 text-white font-medium hover:bg-slate-700 transition-colors border border-slate-600">
                 Explore the Guides
                 <ArrowRight className="w-4 h-4" />
               </Link>
