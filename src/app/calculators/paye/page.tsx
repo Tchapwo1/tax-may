@@ -3,6 +3,7 @@
 import React from 'react';
 import { usePayeCalculator } from '@/features/paye/hooks/usePayeCalculator';
 import { usePayeQuerySync } from '@/features/paye/hooks/usePayeQuerySync';
+import { useComparisonQuerySync } from '@/features/paye/hooks/useComparisonQuerySync';
 import { useComparisonStore } from '@/shared/store/useComparisonStore';
 import { ComparisonPanel } from '@/features/paye/components/ComparisonPanel';
 import { 
@@ -19,6 +20,7 @@ import {
 
 export default function PayeCalculatorPage() {
   usePayeQuerySync();
+  useComparisonQuerySync();
   const {
     state,
     result,

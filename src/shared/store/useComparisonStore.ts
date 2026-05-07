@@ -11,11 +11,13 @@ export interface ComparisonStoreState {
   scenarioB: ComparisonScenario;
   isLocked: boolean;
 
-  // actions
   saveScenarioA: (input: PayeInput) => void;
   saveScenarioB: (input: PayeInput) => void;
   clearScenarios: () => void;
   toggleLock: () => void;
+
+  serializeScenario: (input: PayeInput | null) => string | null;
+  deserializeScenario: (str: string | null) => PayeInput | null;
 }
 
 export const useComparisonStore = create<ComparisonStoreState>((set) => ({
@@ -43,4 +45,31 @@ export const useComparisonStore = create<ComparisonStoreState>((set) => ({
     }),
 
   toggleLock: () => set((s) => ({ isLocked: !s.isLocked })),
+
+  serializeScenario: (input) =>
+    input
+      ? [
+          input.gross,
+          input.isScottish,
+          input.pensionPercent,
+          input.studentLoanPlan,
+          input.blindAllowance,
+        ].join(',')
+      : null,
+
+  deserializeScenario: (str) => {
+    if (!str) return null;
+    const parts = str.split(',');
+    if (parts.length !== 5) return null;
+
+    const [gross, scottish, pension, loan, blind] = parts;
+
+    return {
+      gross: parseFloat(gross) || 0,
+      isScottish: scottish === 'true',
+      pensionPercent: parseFloat(pension) || 0,
+      studentLoanPlan: loan as any,
+      blindAllowance: blind === 'true',
+    };
+  },
 }));
