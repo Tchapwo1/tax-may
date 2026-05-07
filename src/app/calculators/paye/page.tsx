@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { usePayeCalculator } from '@/features/paye/hooks/usePayeCalculator';
+import { usePayeQuerySync } from '@/features/paye/hooks/usePayeQuerySync';
 import { 
   Calculator, 
   Info, 
@@ -14,6 +15,7 @@ import {
 } from 'lucide-react';
 
 export default function PayeCalculatorPage() {
+  usePayeQuerySync();
   const {
     state,
     result,
