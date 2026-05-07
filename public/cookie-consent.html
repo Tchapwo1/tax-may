@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cookie Consent Component | Tax Calculator 365 — Dev Reference</title>
+<style>
+/* ─── Cookie Consent Banner ──────────────────────────────────────────────────
+   PECR / UK GDPR compliant.
+   - Essential cookies: always on, no consent needed
+   - Analytics cookies: require explicit opt-in
+   - Marketing cookies: require explicit opt-in
+   
+   Usage: paste the <style> block and <div id="cookie-banner"> into every page,
+   before </body>. Then include cookie-consent.js (or the inline <script> below).
+   
+   Storage: localStorage key "tc365_consent" = JSON { essential, analytics, marketing, ts }
+   Do NOT use sessionStorage — consent must persist across sessions.
+──────────────────────────────────────────────────────────────────────────── */
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+/* Banner */
+#cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: #0d1f3c;
+  border-top: 1px solid rgba(184,151,42,0.3);
+  padding: 16px 40px;
+  display: none; /* shown by JS after check */
+  font-family: 'DM Sans', system-ui, sans-serif;
+}
+#cookie-banner.visible { display: block; }
+
+.cb-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.cb-text {
+  flex: 1;
+  font-size: 13px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.55;
+  font-weight: 300;
+  min-width: 260px;
+}
+.cb-text strong { color: #fff; font-weight: 500; }
+.cb-text a { color: #b8972a; text-decoration: none; }
+.cb-text a:hover { text-decoration: underline; }
+.cb-actions { display: flex; gap: 8px; align-items: center; flex-shrink: 0; flex-wrap: wrap; }
+.cb-btn {
+  padding: 8px 18px;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+.cb-btn-accept { background: #b8972a; color: #0d1f3c; }
+.cb-btn-accept:hover { background: #caa832; }
+.cb-btn-reject { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.15); }
+.cb-btn-reject:hover { background: rgba(255,255,255,0.13); color: #fff; }
+.cb-btn-manage { background: transparent; color: rgba(255,255,255,0.45); font-size: 11px; padding: 6px 10px; border: 1px solid rgba(255,255,255,0.12); }
+.cb-btn-manage:hover { color: rgba(255,255,255,0.75); border-color: rgba(255,255,255,0.25); }
+
+/* Manage preferences modal */
+#cookie-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(13,31,60,0.75);
+  backdrop-filter: blur(4px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: 'DM Sans', system-ui, sans-serif;
+}
+#cookie-modal.visible { display: flex; }
+.cm-card {
+  background: #fff;
+  border-radius: 16px;
+  max-width: 520px;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(13,31,60,0.3);
+}
+.cm-header {
+  background: #0d1f3c;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cm-title { font-size: 16px; color: #fff; font-weight: 400; }
+.cm-close { background: none; border: none; color: rgba(255,255,255,0.5); font-size: 20px; cursor: pointer; padding: 0; line-height: 1; }
+.cm-close:hover { color: #fff; }
+.cm-body { padding: 20px 24px; }
+.cm-intro { font-size: 13px; color: #5a5a55; line-height: 1.6; margin-bottom: 16px; font-weight: 300; }
+.cm-category {
+  border: 1px solid rgba(13,31,60,0.09);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+}
+.cm-cat-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+.cm-cat-name { font-size: 13px; font-weight: 500; color: #1a1a18; }
+.cm-cat-desc { font-size: 12px; color: #5a5a55; line-height: 1.45; font-weight: 300; }
+/* Mini toggle */
+.mini-toggle { position: relative; width: 36px; height: 20px; flex-shrink: 0; }
+.mini-toggle input { opacity: 0; width: 0; height: 0; }
+.mini-slider { position: absolute; inset: 0; background: #eeece8; border-radius: 20px; cursor: pointer; transition: background 0.2s; }
+.mini-slider:before { content: ''; position: absolute; width: 14px; height: 14px; left: 3px; top: 3px; background: #fff; border-radius: 50%; transition: transform 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.15); }
+.mini-toggle input:checked + .mini-slider { background: #0d1f3c; }
+.mini-toggle input:checked + .mini-slider:before { transform: translateX(16px); }
+.mini-toggle input:disabled + .mini-slider { background: #0a5c3e; cursor: not-allowed; opacity: 0.7; }
+.cm-footer { padding: 14px 24px 20px; display: flex; gap: 10px; }
+.cm-save { flex: 1; padding: 11px; font-family: 'DM Sans', system-ui, sans-serif; font-size: 13px; font-weight: 500; background: #0d1f3c; color: #fff; border: none; border-radius: 6px; cursor: pointer; transition: background 0.15s; }
+.cm-save:hover { background: #274d7e; }
+.cm-accept-all { flex: 1; padding: 11px; font-family: 'DM Sans', system-ui, sans-serif; font-size: 13px; font-weight: 500; background: #b8972a; color: #0d1f3c; border: none; border-radius: 6px; cursor: pointer; transition: background 0.15s; }
+.cm-accept-all:hover { background: #caa832; }
+
+/* Footer link to reopen preferences */
+#cookie-settings-link {
+  font-size: 11px;
+  color: rgba(255,255,255,0.35);
+  cursor: pointer;
+  text-decoration: underline;
+  background: none;
+  border: none;
+  font-family: inherit;
+  padding: 0;
+}
+#cookie-settings-link:hover { color: rgba(255,255,255,0.6); }
+
+/* Demo page styles */
+body { font-family: 'DM Sans', system-ui, sans-serif; background: #f8f6f0; }
+.demo { max-width: 680px; margin: 60px auto; padding: 40px; background: #fff; border-radius: 16px; border: 1px solid rgba(13,31,60,0.09); }
+.demo h1 { font-size: 22px; margin-bottom: 8px; color: #0d1f3c; }
+.demo p { font-size: 14px; color: #5a5a55; line-height: 1.65; margin-bottom: 14px; font-weight: 300; }
+.demo pre { background: #f8f6f0; padding: 14px; border-radius: 8px; font-size: 12px; color: #1a1a18; overflow-x: auto; margin-bottom: 14px; border: 1px solid rgba(13,31,60,0.09); }
+.demo .test-btn { padding: 8px 16px; background: #0d1f3c; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-size: 12px; font-family: inherit; margin-right: 8px; margin-bottom: 8px; }
+.demo .status { font-size: 12px; color: #5a5a55; padding: 10px 14px; background: #f8f6f0; border-radius: 6px; margin-top: 10px; font-family: monospace; }
+</style>
+</head>
+<body>
+
+<!-- ─── Dev reference page ───────────────────────────────── -->
+<div class="demo">
+  <h1>Cookie Consent — Component Reference</h1>
+  <p>This file contains the production-ready cookie consent banner and modal for taxcalculator365.com. PECR and UK GDPR compliant. Copy the marked sections into your page template.</p>
+  <p><strong>Integration:</strong> Add the banner HTML before <code>&lt;/body&gt;</code>. Add the script after it. The banner checks localStorage on load — if consent is already stored, it stays hidden.</p>
+  <button class="test-btn" onclick="resetConsent()">Reset consent (show banner)</button>
+  <button class="test-btn" onclick="openModal()">Open preferences modal</button>
+  <div class="status" id="status-display">Consent status: checking...</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     COPY EVERYTHING BELOW INTO YOUR PAGE TEMPLATE
+     ═══════════════════════════════════════════════════════════ -->
+
+<!-- Cookie Banner — paste before </body> on every page -->
+<div id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
+  <div class="cb-inner">
+    <p class="cb-text">
+      <strong>We use cookies</strong> to understand how our calculators are used and to improve the site. 
+      Essential cookies are always on. Analytics cookies help us see which calculators are most useful.
+      <a href="/cookies">Cookie policy</a> · <a href="/privacy">Privacy policy</a>
+    </p>
+    <div class="cb-actions">
+      <button class="cb-btn cb-btn-accept" onclick="acceptAll()">Accept all</button>
+      <button class="cb-btn cb-btn-reject" onclick="rejectAll()">Essential only</button>
+      <button class="cb-btn cb-btn-manage" onclick="openModal()">Manage</button>
+    </div>
+  </div>
+</div>
+
+<!-- Cookie Preferences Modal -->
+<div id="cookie-modal" role="dialog" aria-modal="true" aria-labelledby="cm-title-label" onclick="modalBackdropClick(event)">
+  <div class="cm-card">
+    <div class="cm-header">
+      <p class="cm-title" id="cm-title-label">Cookie preferences</p>
+      <button class="cm-close" onclick="closeModal()" aria-label="Close">&times;</button>
+    </div>
+    <div class="cm-body">
+      <p class="cm-intro">Choose which cookies you allow. You can change these settings at any time using the "Cookie settings" link in the page footer.</p>
+
+      <!-- Essential -->
+      <div class="cm-category">
+        <div class="cm-cat-header">
+          <div>
+            <p class="cm-cat-name">Essential cookies</p>
+          </div>
+          <label class="mini-toggle" aria-label="Essential cookies — always on">
+            <input type="checkbox" checked disabled>
+            <span class="mini-slider"></span>
+          </label>
+        </div>
+        <p class="cm-cat-desc">Required for the site to function. Store your consent preferences and session data for the B2B portal. Cannot be disabled.</p>
+      </div>
+
+      <!-- Analytics -->
+      <div class="cm-category">
+        <div class="cm-cat-header">
+          <div>
+            <p class="cm-cat-name">Analytics cookies</p>
+          </div>
+          <label class="mini-toggle" aria-label="Toggle analytics cookies">
+            <input type="checkbox" id="toggle-analytics">
+            <span class="mini-slider"></span>
+          </label>
+        </div>
+        <p class="cm-cat-desc">Google Analytics 4. Tells us which calculators are used most, where users drop off, and how long pages take to load. Data is aggregated — we cannot identify you. IP addresses are anonymised.</p>
+      </div>
+
+      <!-- Marketing -->
+      <div class="cm-category">
+        <div class="cm-cat-header">
+          <div>
+            <p class="cm-cat-name">Marketing cookies</p>
+          </div>
+          <label class="mini-toggle" aria-label="Toggle marketing cookies">
+            <input type="checkbox" id="toggle-marketing">
+            <span class="mini-slider"></span>
+          </label>
+        </div>
+        <p class="cm-cat-desc">Used to measure the effectiveness of any paid advertising we run. We do not use marketing cookies to build profiles or retarget you across other websites without your consent.</p>
+      </div>
+    </div>
+    <div class="cm-footer">
+      <button class="cm-save" onclick="savePreferences()">Save preferences</button>
+      <button class="cm-accept-all" onclick="acceptAll()">Accept all</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     COOKIE CONSENT SCRIPT
+     Copy this into a shared cookie-consent.js file or
+     paste inline before </body> on every page.
+     ═══════════════════════════════════════════════════════════ -->
+<script>
+(function() {
+  'use strict';
+
+  const STORAGE_KEY = 'tc365_consent';
+  const CONSENT_VERSION = '1'; // bump this to re-prompt after policy changes
+
+  /* ── Load stored consent ── */
+  function getConsent() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return null;
+      const parsed = JSON.parse(raw);
+      if (parsed.version !== CONSENT_VERSION) return null; // re-prompt on version change
+      return parsed;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  /* ── Save consent ── */
+  function setConsent(analytics, marketing) {
+    const consent = {
+      version: CONSENT_VERSION,
+      essential: true,
+      analytics: analytics,
+      marketing: marketing,
+      ts: new Date().toISOString(),
+    };
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(consent));
+    } catch (e) {
+      console.warn('[tc365] Could not save consent to localStorage');
+    }
+    applyConsent(consent);
+    hideBanner();
+    closeModal();
+    updateStatus();
+  }
+
+  /* ── Apply consent to analytics/marketing scripts ── */
+  function applyConsent(consent) {
+    // Google Analytics
+    if (consent.analytics) {
+      loadGA();
+    } else {
+      // Disable GA if already loaded
+      window['ga-disable-G-XXXXXXXX'] = true; // replace with your GA4 ID
+    }
+
+    // Push to dataLayer for GTM if used
+    if (window.dataLayer) {
+      window.dataLayer.push({
+        event: 'consent_update',
+        analytics_storage: consent.analytics ? 'granted' : 'denied',
+        ad_storage: consent.marketing ? 'granted' : 'denied',
+      });
+    }
+
+    // GA4 consent mode (call before gtag is loaded)
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', {
+        analytics_storage: consent.analytics ? 'granted' : 'denied',
+        ad_storage: consent.marketing ? 'granted' : 'denied',
+      });
+    }
+  }
+
+  /* ── Load GA4 dynamically after consent ── */
+  function loadGA() {
+    const GA_ID = 'G-XXXXXXXX'; // replace with your GA4 measurement ID
+    if (document.querySelector('script[src*="googletagmanager"]')) return; // already loaded
+    const s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function() { window.dataLayer.push(arguments); };
+    gtag('js', new Date());
+    gtag('config', GA_ID, { anonymize_ip: true });
+  }
+
+  /* ── Banner visibility ── */
+  function showBanner() {
+    const banner = document.getElementById('cookie-banner');
+    if (banner) banner.classList.add('visible');
+  }
+
+  function hideBanner() {
+    const banner = document.getElementById('cookie-banner');
+    if (banner) banner.classList.remove('visible');
+  }
+
+  /* ── Modal ── */
+  window.openModal = function() {
+    const modal = document.getElementById('cookie-modal');
+    if (!modal) return;
+    // Pre-fill toggles from stored consent
+    const consent = getConsent();
+    document.getElementById('toggle-analytics').checked = consent ? consent.analytics : false;
+    document.getElementById('toggle-marketing').checked = consent ? consent.marketing : false;
+    modal.classList.add('visible');
+    hideBanner();
+    // Trap focus
+    const firstBtn = modal.querySelector('button');
+    if (firstBtn) firstBtn.focus();
+  };
+
+  window.closeModal = function() {
+    const modal = document.getElementById('cookie-modal');
+    if (modal) modal.classList.remove('visible');
+  };
+
+  window.modalBackdropClick = function(e) {
+    if (e.target === document.getElementById('cookie-modal')) closeModal();
+  };
+
+  /* ── Consent actions ── */
+  window.acceptAll = function() { setConsent(true, true); };
+  window.rejectAll = function() { setConsent(false, false); };
+  window.savePreferences = function() {
+    const analytics = document.getElementById('toggle-analytics').checked;
+    const marketing = document.getElementById('toggle-marketing').checked;
+    setConsent(analytics, marketing);
+  };
+
+  /* ── Init on load ── */
+  document.addEventListener('DOMContentLoaded', function() {
+    const consent = getConsent();
+    if (!consent) {
+      // No consent stored — show banner after short delay
+      setTimeout(showBanner, 800);
+    } else {
+      // Consent stored — apply immediately without showing banner
+      applyConsent(consent);
+    }
+    updateStatus();
+
+    // Keyboard: close modal on Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+  });
+
+  /* ── Dev helpers (remove in production) ── */
+  window.resetConsent = function() {
+    localStorage.removeItem(STORAGE_KEY);
+    showBanner();
+    updateStatus();
+  };
+
+  function updateStatus() {
+    const el = document.getElementById('status-display');
+    if (!el) return;
+    const c = getConsent();
+    el.textContent = c
+      ? `Consent stored: analytics=${c.analytics}, marketing=${c.marketing}, version=${c.version}, ts=${c.ts}`
+      : 'No consent stored — banner will show';
+  }
+
+})();
+</script>
+
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER LINK — add to every page footer
+     ═══════════════════════════════════════════════════════════ -->
+<!-- 
+  In your footer HTML, add:
+  <button id="cookie-settings-link" onclick="openModal()">Cookie settings</button>
+-->
+
+<!-- ═══════════════════════════════════════════════════════════
+     GA4 CONSENT MODE DEFAULTS — add to <head> BEFORE gtag loads
+     This sets denied defaults so GA fires no cookies until consent given
+     ═══════════════════════════════════════════════════════════ -->
+<!--
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  // Set default consent BEFORE loading GA
+  gtag('consent', 'default', {
+    analytics_storage: 'denied',
+    ad_storage: 'denied',
+    wait_for_update: 500,
+  });
+</script>
+-->
+
+</body>
+</html>

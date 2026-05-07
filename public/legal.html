@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy | Tax Calculator 365</title>
+<meta name="description" content="Privacy policy for Tax Calculator 365. How we collect, use, and protect your personal data under UK GDPR.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy: #0d1f3c; --gold: #b8972a; --cream: #f8f6f0; --white: #ffffff;
+  --ink: #1a1a18; --ink-60: #5a5a55; --ink-30: #b0aea8;
+  --border: rgba(13,31,60,0.09); --border-med: rgba(13,31,60,0.16);
+  --ff-display: 'Playfair Display', Georgia, serif;
+  --ff-body: 'DM Sans', system-ui, sans-serif;
+  --r-sm: 6px; --r-md: 10px; --r-lg: 16px;
+}
+body { font-family: var(--ff-body); background: var(--cream); color: var(--ink); -webkit-font-smoothing: antialiased; }
+.nav { background: var(--navy); height: 52px; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; }
+.nav-logo { font-family: var(--ff-display); font-size: 17px; color: #fff; text-decoration: none; }
+.nav-logo span { color: var(--gold); }
+.nav-links { display: flex; gap: 24px; list-style: none; }
+.nav-links a { font-size: 12px; color: rgba(255,255,255,0.55); text-decoration: none; }
+.breadcrumb { padding: 10px 40px; border-bottom: 1px solid var(--border); background: var(--white); display: flex; gap: 6px; align-items: center; }
+.bc { font-size: 11px; color: var(--ink-30); text-decoration: none; }
+.bc-sep { font-size: 11px; color: var(--ink-30); }
+.bc-curr { font-size: 11px; color: var(--ink-60); }
+.doc-tabs { display: flex; gap: 0; padding: 0 40px; background: var(--white); border-bottom: 1px solid var(--border); }
+.doc-tab { padding: 14px 20px; font-size: 13px; color: var(--ink-60); cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.15s; background: none; border-top: none; border-left: none; border-right: none; font-family: var(--ff-body); }
+.doc-tab.active { color: var(--navy); border-bottom-color: var(--navy); font-weight: 500; }
+.page-wrap { max-width: 760px; margin: 0 auto; padding: 48px 40px 64px; }
+.doc-panel { display: none; }
+.doc-panel.active { display: block; }
+.doc-updated { font-size: 11px; color: var(--ink-30); margin-bottom: 32px; }
+.doc-h1 { font-family: var(--ff-display); font-size: 28px; font-weight: 400; color: var(--ink); margin-bottom: 6px; }
+.doc-h2 { font-family: var(--ff-display); font-size: 18px; font-weight: 400; color: var(--ink); margin: 32px 0 10px; letter-spacing: -0.01em; }
+.doc-h3 { font-size: 14px; font-weight: 500; color: var(--ink); margin: 18px 0 6px; }
+.doc-p { font-size: 14px; font-weight: 300; color: var(--ink-60); line-height: 1.75; margin-bottom: 12px; }
+.doc-p strong { font-weight: 500; color: var(--ink); }
+.doc-p a { color: var(--navy); }
+.doc-ul { list-style: none; margin: 8px 0 14px; }
+.doc-ul li { font-size: 14px; font-weight: 300; color: var(--ink-60); line-height: 1.65; padding: 4px 0 4px 18px; position: relative; }
+.doc-ul li::before { content: '—'; position: absolute; left: 0; color: var(--ink-30); }
+.doc-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 12px 0 16px; }
+.doc-table th { text-align: left; padding: 9px 12px; background: var(--cream); font-weight: 500; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-60); border-bottom: 1px solid var(--border); }
+.doc-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--ink-60); font-size: 13px; vertical-align: top; line-height: 1.5; }
+.doc-table tr:last-child td { border-bottom: none; }
+.doc-notice { background: var(--navy); color: rgba(255,255,255,0.7); padding: 16px 20px; border-radius: var(--r-md); margin: 16px 0; font-size: 13px; line-height: 1.65; font-weight: 300; }
+.doc-notice strong { color: #fff; font-weight: 500; }
+.doc-divider { height: 1px; background: var(--border); margin: 32px 0; }
+.contact-box { background: var(--white); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 20px 24px; margin-top: 32px; }
+.contact-box-title { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 6px; }
+.contact-box-body { font-size: 13px; color: var(--ink-60); line-height: 1.65; font-weight: 300; }
+.contact-box-body a { color: var(--navy); }
+.footer { background: var(--navy); padding: 28px 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.footer-copy { font-size: 11px; color: rgba(255,255,255,0.3); font-weight: 300; }
+.footer-links { display: flex; gap: 14px; }
+.footer-links a { font-size: 11px; color: rgba(255,255,255,0.35); text-decoration: none; }
+@media (max-width: 700px) {
+  .nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .breadcrumb { padding: 10px 20px; }
+  .doc-tabs { padding: 0 16px; overflow-x: auto; scrollbar-width: none; }
+  .page-wrap { padding: 32px 20px 48px; }
+  .footer { padding: 20px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-logo">Tax<span>Calculator</span>365</a>
+  <ul class="nav-links">
+    <li><a href="/calculators">Calculators</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/guides">Guides</a></li>
+  </ul>
+</nav>
+
+<nav class="breadcrumb">
+  <a href="/" class="bc">Home</a><span class="bc-sep">›</span>
+  <span class="bc-curr" id="bc-label">Privacy Policy</span>
+</nav>
+
+<div class="doc-tabs">
+  <button class="doc-tab active" onclick="showDoc('privacy',this)">Privacy Policy</button>
+  <button class="doc-tab" onclick="showDoc('terms',this)">Terms of Service</button>
+  <button class="doc-tab" onclick="showDoc('cookies',this)">Cookie Policy</button>
+</div>
+
+<div class="page-wrap">
+
+  <!-- PRIVACY POLICY -->
+  <div class="doc-panel active" id="doc-privacy">
+    <h1 class="doc-h1">Privacy Policy</h1>
+    <p class="doc-updated">Last updated: 1 April 2025 · Effective date: 1 April 2025</p>
+
+    <div class="doc-notice">
+      <strong>Summary in plain English:</strong> We collect your email address when you sign up for a lead magnet or newsletter, and basic contact details when you request a filing service quote. We do not sell your data. We do not share it with advertisers. Calculator inputs are processed entirely in your browser — we do not store the numbers you enter into our free calculators.
+    </div>
+
+    <h2 class="doc-h2">1. Who we are</h2>
+    <p class="doc-p">Tax Calculator 365 ("we", "us", "our") is operated by [Company Name Ltd], a company registered in England and Wales (company number [XXXXXXXX]). We are registered with the Information Commissioner's Office (ICO) as a data controller (registration reference [ZAXXXXXXX]).</p>
+    <p class="doc-p">Our registered address is: [Address], [City], [Postcode], United Kingdom.</p>
+    <p class="doc-p">For data protection enquiries, contact us at: <a href="mailto:privacy@taxcalculator365.com">privacy@taxcalculator365.com</a></p>
+
+    <h2 class="doc-h2">2. What data we collect and why</h2>
+
+    <h3 class="doc-h3">2.1 Free calculator tools</h3>
+    <p class="doc-p">Our calculators run entirely within your browser (client-side). <strong>We do not transmit, store, or log any financial figures you enter into our calculators.</strong> The income, expense, and tax figures you enter exist only on your device and are discarded when you close or refresh the page.</p>
+
+    <h3 class="doc-h3">2.2 Email lead magnets (checklists, guides)</h3>
+    <p class="doc-p">When you request a free resource (such as the Sole Trader Expenses Checklist), we collect your email address. We use this to:</p>
+    <ul class="doc-ul">
+      <li>Deliver the requested resource</li>
+      <li>Send related tax guides and updates (you can unsubscribe at any time)</li>
+    </ul>
+    <p class="doc-p"><strong>Lawful basis:</strong> Consent (Article 6(1)(a) UK GDPR). You can withdraw consent at any time by clicking "unsubscribe" in any email or emailing privacy@taxcalculator365.com.</p>
+
+    <h3 class="doc-h3">2.3 Service enquiry forms</h3>
+    <p class="doc-p">When you request a quote for a filing service, we collect: name, email address, phone number, general description of your tax situation, and tax year(s) concerned. We use this to respond to your enquiry and, if you proceed, to provide the tax filing service.</p>
+    <p class="doc-p"><strong>Lawful basis:</strong> Contract (Article 6(1)(b) UK GDPR) — the processing is necessary to respond to your pre-contractual request.</p>
+
+    <h3 class="doc-h3">2.4 Analytics</h3>
+    <p class="doc-p">We use analytics tools (such as Google Analytics 4) to understand how visitors use our site. This includes page views, session duration, device type, and general geographic region. We do not use this data to identify individuals. Analytics cookies require your explicit consent via our cookie banner.</p>
+    <p class="doc-p"><strong>Lawful basis:</strong> Consent (PECR Regulation 6).</p>
+
+    <h2 class="doc-h2">3. How long we keep your data</h2>
+    <table class="doc-table">
+      <thead><tr><th>Data type</th><th>Retention period</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>Calculator inputs</td><td>Not stored</td><td>Processed in-browser only</td></tr>
+        <tr><td>Email addresses (lead magnets)</td><td>Until you unsubscribe + 30 days</td><td>Consent withdrawal</td></tr>
+        <tr><td>Service enquiry data (non-client)</td><td>12 months</td><td>Legitimate interest in responding to enquiries</td></tr>
+        <tr><td>Client filing data (engaged clients)</td><td>7 years from tax year end</td><td>HMRC record-keeping requirements</td></tr>
+        <tr><td>Analytics data</td><td>14 months (GA4 default)</td><td>Aggregate reporting only</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="doc-h2">4. Who we share data with</h2>
+    <p class="doc-p">We do not sell your personal data. We share data only with:</p>
+    <ul class="doc-ul">
+      <li><strong>Email service providers</strong> (e.g. Resend, Mailchimp) to deliver emails you have requested. These operate under Data Processing Agreements.</li>
+      <li><strong>Analytics providers</strong> (Google Analytics) under consent. IP addresses are anonymised.</li>
+      <li><strong>HMRC</strong> — when filing a tax return on your behalf as your agent. This is the core purpose of the filing service.</li>
+      <li><strong>Payment processors</strong> (e.g. Stripe) for service payments. We do not store card details.</li>
+    </ul>
+    <p class="doc-p">We do not transfer personal data outside the UK/EEA except where processors have adequate safeguards (e.g. Standard Contractual Clauses). Google Analytics data may be processed in the United States under SCCs.</p>
+
+    <h2 class="doc-h2">5. Your rights under UK GDPR</h2>
+    <p class="doc-p">You have the right to: access your personal data; correct inaccurate data; request erasure; restrict processing; data portability; and object to processing. To exercise any right, email <a href="mailto:privacy@taxcalculator365.com">privacy@taxcalculator365.com</a>. We will respond within 30 days.</p>
+    <p class="doc-p">You also have the right to complain to the Information Commissioner's Office: <a href="https://ico.org.uk" target="_blank">ico.org.uk</a> or 0303 123 1113.</p>
+
+    <div class="contact-box">
+      <p class="contact-box-title">Data protection contact</p>
+      <p class="contact-box-body">For all data protection enquiries: <a href="mailto:privacy@taxcalculator365.com">privacy@taxcalculator365.com</a><br>Or write to: Data Protection, Tax Calculator 365, [Address], [City], [Postcode]</p>
+    </div>
+  </div>
+
+  <!-- TERMS OF SERVICE -->
+  <div class="doc-panel" id="doc-terms">
+    <h1 class="doc-h1">Terms of Service</h1>
+    <p class="doc-updated">Last updated: 1 April 2025 · Effective date: 1 April 2025</p>
+
+    <div class="doc-notice">
+      <strong>The most important thing to understand:</strong> Our calculators produce <strong>estimates only</strong>. They are not a substitute for professional tax advice. You remain solely responsible for your own tax affairs. Nothing on this site is regulated tax advice.
+    </div>
+
+    <h2 class="doc-h2">1. Acceptance of terms</h2>
+    <p class="doc-p">By accessing or using taxcalculator365.com ("the Site"), you agree to these Terms of Service. If you do not agree, please do not use the Site. These terms govern your use of the free calculator tools, guides, and any professional services we provide.</p>
+
+    <h2 class="doc-h2">2. Calculator tools — estimates only</h2>
+    <p class="doc-p"><strong>2.1 Nature of results.</strong> The calculators on this Site produce estimates based on standard tax rates and the figures you enter. Results are indicative only. Actual tax liability is determined by HMRC based on your full individual circumstances, and may differ materially from calculator estimates.</p>
+    <p class="doc-p"><strong>2.2 No reliance.</strong> You must not rely solely on calculator results for any financial, tax, or business decision. You should always verify your tax position with HMRC directly or with a qualified tax professional before filing any return or making any payment.</p>
+    <p class="doc-p"><strong>2.3 Accuracy of inputs.</strong> Calculator results are only as accurate as the information you enter. We do not validate the information you provide and accept no responsibility for results arising from incorrect inputs.</p>
+    <p class="doc-p"><strong>2.4 Not regulated advice.</strong> Nothing produced by our calculators constitutes regulated tax advice, financial advice, or investment advice within the meaning of the Financial Services and Markets Act 2000 or any related legislation. We are not an authorised person under FSMA 2000 with respect to investment business.</p>
+
+    <h2 class="doc-h2">3. Tax rate accuracy</h2>
+    <p class="doc-p">We make reasonable efforts to ensure our calculators reflect current HMRC rates and thresholds. However, tax law changes frequently. We cannot guarantee that all rates are current at the time of your calculation. You are responsible for verifying that the tax rates applied reflect your actual circumstances and the correct tax year.</p>
+    <p class="doc-p">If you identify an error in our tax rates, please contact us at <a href="mailto:corrections@taxcalculator365.com">corrections@taxcalculator365.com</a> and we will investigate promptly.</p>
+
+    <h2 class="doc-h2">4. Professional filing services</h2>
+    <p class="doc-p"><strong>4.1 Separate engagement.</strong> Our professional tax filing services (Self Assessment, CGT reporting, MTD compliance, company accounts) are provided under a separate engagement letter that you must sign before work begins. These terms govern your access to the Site; the engagement letter governs the professional service relationship.</p>
+    <p class="doc-p"><strong>4.2 Qualified accountants.</strong> Filing services are carried out by accountants holding ACCA or ATT qualifications. Details of the qualifying accountant are set out in your engagement letter.</p>
+    <p class="doc-p"><strong>4.3 Professional indemnity.</strong> We hold professional indemnity insurance in respect of all filing engagements. Coverage details are available on request.</p>
+    <p class="doc-p"><strong>4.4 Client responsibility.</strong> You are responsible for providing accurate and complete information. We cannot be held liable for errors arising from information you provide that is incorrect, incomplete, or misleading. Your engagement letter sets out your obligations in detail.</p>
+    <p class="doc-p"><strong>4.5 Fees.</strong> Fees are fixed and confirmed in writing before work begins. Payment terms are set out in your engagement letter. We do not begin work until we have received your signed engagement letter.</p>
+
+    <h2 class="doc-h2">5. Limitation of liability</h2>
+    <p class="doc-p"><strong>5.1 Calculator tools.</strong> To the fullest extent permitted by applicable law, we exclude all liability for any loss or damage of any kind arising from your use of the free calculator tools on this Site, including but not limited to: any financial loss arising from reliance on calculator estimates; any penalty, surcharge, or interest charged by HMRC; any loss of opportunity; or any indirect or consequential loss.</p>
+    <p class="doc-p"><strong>5.2 Professional services.</strong> Our liability in respect of professional filing services is limited to the fee paid for the specific engagement. This limitation does not apply to liability for death or personal injury arising from our negligence, fraud, or fraudulent misrepresentation, or any liability that cannot be lawfully excluded or limited under the Consumer Rights Act 2015.</p>
+    <p class="doc-p"><strong>5.3 Consumer rights.</strong> Nothing in these Terms affects your statutory rights as a consumer under UK law.</p>
+
+    <h2 class="doc-h2">6. Fair use — free tools</h2>
+    <p class="doc-p">Our calculators are provided free of charge for personal and professional use. You must not use automated tools, scripts, or bots to access or scrape our calculators. You must not use our calculators in a way that places excessive or unreasonable demand on our infrastructure. We reserve the right to limit or restrict access where we believe these terms are being breached.</p>
+
+    <h2 class="doc-h2">7. B2B and organisation accounts</h2>
+    <p class="doc-p">Organisations accessing our tools under a B2B account are subject to a fair-use limit of 10 free calculations per account per calendar year. Exceeding this limit without a paid B2B subscription constitutes a breach of these Terms. B2B subscription terms are set out in the separate B2B agreement.</p>
+
+    <h2 class="doc-h2">8. Intellectual property</h2>
+    <p class="doc-p">All content on this Site — including calculator logic, guides, copy, design, and branding — is owned by or licensed to Tax Calculator 365. You may not reproduce, copy, distribute, or use our content for commercial purposes without express written permission.</p>
+
+    <h2 class="doc-h2">9. Governing law</h2>
+    <p class="doc-p">These Terms are governed by the laws of England and Wales. Any dispute arising from these Terms or your use of the Site shall be subject to the exclusive jurisdiction of the courts of England and Wales.</p>
+
+    <h2 class="doc-h2">10. Changes to these Terms</h2>
+    <p class="doc-p">We may update these Terms from time to time. Material changes will be notified via a prominent notice on the Site. Continued use of the Site after notification constitutes acceptance of the updated Terms. The date of last revision is shown at the top of this page.</p>
+
+    <div class="contact-box">
+      <p class="contact-box-title">Questions about these Terms</p>
+      <p class="contact-box-body">Email: <a href="mailto:legal@taxcalculator365.com">legal@taxcalculator365.com</a><br>Post: Tax Calculator 365, [Address], [City], [Postcode], United Kingdom</p>
+    </div>
+  </div>
+
+  <!-- COOKIE POLICY -->
+  <div class="doc-panel" id="doc-cookies">
+    <h1 class="doc-h1">Cookie Policy</h1>
+    <p class="doc-updated">Last updated: 1 April 2025</p>
+
+    <p class="doc-p">This Cookie Policy explains what cookies are, which cookies we use, and how you can control them. It should be read alongside our <a href="#" onclick="showDoc('privacy',document.querySelector('.doc-tab'))">Privacy Policy</a>.</p>
+
+    <h2 class="doc-h2">What are cookies?</h2>
+    <p class="doc-p">Cookies are small text files placed on your device when you visit a website. They allow the site to remember your preferences and actions, and help us understand how visitors use our site. Some cookies are essential for the site to function; others are optional and require your consent under UK law (PECR).</p>
+
+    <h2 class="doc-h2">Cookies we use</h2>
+    <table class="doc-table">
+      <thead><tr><th>Cookie</th><th>Type</th><th>Purpose</th><th>Duration</th></tr></thead>
+      <tbody>
+        <tr><td>tc365_consent</td><td>Essential</td><td>Stores your cookie consent preference</td><td>12 months</td></tr>
+        <tr><td>tc365_session</td><td>Essential</td><td>Maintains your session when logged into the B2B portal</td><td>Session</td></tr>
+        <tr><td>_ga, _ga_[ID]</td><td>Analytics</td><td>Google Analytics — tracks page views, session data. IP anonymised. Requires consent.</td><td>14 months</td></tr>
+        <tr><td>_fbp</td><td>Marketing</td><td>Facebook Pixel — only set if you consent to marketing cookies. Used to measure ad performance.</td><td>3 months</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="doc-h2">Essential cookies</h2>
+    <p class="doc-p">Essential cookies cannot be disabled as they are necessary for the site to function. They do not track you for advertising purposes and do not require your consent under PECR.</p>
+
+    <h2 class="doc-h2">Analytics cookies</h2>
+    <p class="doc-p">We use Google Analytics 4 to understand how our site is used. Analytics cookies are only set after you give consent via our cookie banner. You can withdraw consent at any time by clicking "Cookie settings" in the page footer.</p>
+    <p class="doc-p">Analytics data is aggregated and anonymous. We cannot identify you from analytics data. Google may process this data in the United States under Standard Contractual Clauses.</p>
+
+    <h2 class="doc-h2">How to control cookies</h2>
+    <p class="doc-p">You can control cookies in several ways:</p>
+    <ul class="doc-ul">
+      <li><strong>Our cookie banner</strong> — shown on your first visit. Accept or decline optional cookies.</li>
+      <li><strong>Cookie settings link</strong> — available in the footer at any time to update your preferences.</li>
+      <li><strong>Browser settings</strong> — all modern browsers allow you to block or delete cookies. Note this may affect site functionality.</li>
+      <li><strong>Google Analytics opt-out</strong> — install the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">Google Analytics Opt-out Browser Add-on</a>.</li>
+    </ul>
+
+    <h2 class="doc-h2">Calculator tools and local storage</h2>
+    <p class="doc-p">Our calculators may use your browser's <strong>local storage</strong> (not cookies) to temporarily remember your calculation inputs within a session. This data never leaves your device and is not accessible to us. It is cleared when you close your browser or clear your site data.</p>
+
+    <div class="contact-box">
+      <p class="contact-box-title">Cookie questions</p>
+      <p class="contact-box-body">Email: <a href="mailto:privacy@taxcalculator365.com">privacy@taxcalculator365.com</a></p>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <p class="footer-copy">© 2025 Tax Calculator 365. All rights reserved. Company No. [XXXXXXXX]. ICO Ref: [ZAXXXXXXX].</p>
+  <div class="footer-links">
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+    <a href="/cookies">Cookies</a>
+    <a href="/accessibility">Accessibility</a>
+  </div>
+</footer>
+
+<script>
+function showDoc(id, btn) {
+  document.querySelectorAll('.doc-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.doc-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('doc-' + id).classList.add('active');
+  if(btn) btn.classList.add('active');
+  const labels = { privacy: 'Privacy Policy', terms: 'Terms of Service', cookies: 'Cookie Policy' };
+  document.getElementById('bc-label').textContent = labels[id];
+  document.title = labels[id] + ' | Tax Calculator 365';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Self Assessment Filing Service from £119 | Tax Calculator 365</title>
+<meta name="description" content="Professional Self Assessment tax return filing for sole traders, landlords, PAYE employees, and directors. Fixed fee from £119. Handled by qualified UK accountants.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Self Assessment Tax Return Filing",
+  "description": "Professional Self Assessment filing for UK sole traders, landlords, PAYE employees, and directors. Handled by qualified accountants from £119.",
+  "url": "https://taxcalculator365.com/services/self-assessment",
+  "provider": { "@type": "Organization", "name": "Tax Calculator 365", "url": "https://taxcalculator365.com" },
+  "areaServed": { "@type": "Country", "name": "United Kingdom" },
+  "offers": { "@type": "Offer", "price": "119", "priceCurrency": "GBP", "priceSpecification": { "@type": "PriceSpecification", "minPrice": "119", "priceCurrency": "GBP" } }
+}
+</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy: #0d1f3c; --navy-80: #1a3358; --navy-60: #274d7e;
+  --gold: #b8972a; --gold-light: #f0e4b8; --gold-pale: #faf6e9;
+  --cream: #f8f6f0; --white: #ffffff;
+  --ink: #1a1a18; --ink-60: #5a5a55; --ink-30: #b0aea8; --ink-10: #eeece8;
+  --green: #0a5c3e; --green-bg: #e6f4ee; --green-border: rgba(10,92,62,0.2);
+  --red: #991f1f; --red-bg: #fdf0f0;
+  --amber: #7a4f0a; --amber-bg: #fef8ec;
+  --border: rgba(13,31,60,0.09); --border-med: rgba(13,31,60,0.16);
+  --ff-display: 'Playfair Display', Georgia, serif;
+  --ff-body: 'DM Sans', system-ui, sans-serif;
+  --r-sm: 6px; --r-md: 10px; --r-lg: 16px;
+  --shadow: 0 1px 4px rgba(13,31,60,0.08), 0 6px 24px rgba(13,31,60,0.07);
+  --t: 0.18s ease;
+}
+html { font-size: 16px; }
+body { font-family: var(--ff-body); background: var(--cream); color: var(--ink); -webkit-font-smoothing: antialiased; }
+
+/* Nav */
+.nav { background: var(--navy); height: 52px; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; position: sticky; top: 0; z-index: 100; }
+.nav-logo { font-family: var(--ff-display); font-size: 17px; color: #fff; text-decoration: none; font-weight: 400; }
+.nav-logo span { color: var(--gold); }
+.nav-links { display: flex; gap: 24px; list-style: none; }
+.nav-links a { font-size: 12px; color: rgba(255,255,255,0.55); text-decoration: none; transition: color var(--t); }
+.nav-links a:hover { color: #fff; }
+.nav-cta { font-size: 12px; font-weight: 500; padding: 6px 16px; background: var(--gold); color: var(--navy); border: none; border-radius: var(--r-sm); cursor: pointer; text-decoration: none; }
+
+/* Breadcrumb */
+.breadcrumb { padding: 10px 40px; border-bottom: 1px solid var(--border); background: var(--white); display: flex; gap: 6px; align-items: center; }
+.bc { font-size: 11px; color: var(--ink-30); text-decoration: none; }
+.bc:hover { color: var(--ink-60); }
+.bc-sep { font-size: 11px; color: var(--ink-30); }
+.bc-curr { font-size: 11px; color: var(--ink-60); }
+
+/* Hero */
+.hero { background: var(--navy); padding: 52px 40px 48px; }
+.hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 400px; gap: 60px; align-items: center; }
+.hero-tag { font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+.hero-h1 { font-family: var(--ff-display); font-size: 34px; font-weight: 400; color: #fff; line-height: 1.15; margin-bottom: 14px; letter-spacing: -0.01em; }
+.hero-sub { font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.7; margin-bottom: 24px; }
+.hero-includes { display: flex; flex-direction: column; gap: 8px; }
+.hero-include { display: flex; align-items: center; gap: 10px; font-size: 13px; color: rgba(255,255,255,0.7); }
+.hero-include-tick { width: 18px; height: 18px; border-radius: 50%; background: rgba(10,92,62,0.3); border: 1px solid rgba(10,92,62,0.5); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.tick-svg { width: 9px; height: 7px; stroke: #5dcaa5; stroke-width: 2; fill: none; }
+
+/* Booking card */
+.booking-card { background: var(--white); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--shadow); }
+.booking-card-header { background: var(--gold-pale); border-bottom: 1px solid var(--gold-light); padding: 16px 20px; }
+.booking-card-eyebrow { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--amber); margin-bottom: 4px; }
+.booking-card-title { font-family: var(--ff-display); font-size: 18px; color: var(--ink); font-weight: 400; }
+.booking-card-body { padding: 20px; }
+.form-field { margin-bottom: 14px; }
+.form-label { display: block; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-60); margin-bottom: 5px; }
+.form-input, .form-select, .form-textarea {
+  width: 100%; padding: 10px 12px; font-family: var(--ff-body); font-size: 14px;
+  color: var(--ink); background: var(--cream); border: 1px solid var(--border-med);
+  border-radius: var(--r-sm); outline: none; transition: border-color var(--t), background var(--t);
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--navy-60); background: var(--white); }
+.form-textarea { resize: vertical; min-height: 80px; font-size: 13px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.form-submit { width: 100%; padding: 13px; font-family: var(--ff-display); font-size: 16px; font-weight: 400; background: var(--navy); color: #fff; border: none; border-radius: var(--r-sm); cursor: pointer; letter-spacing: 0.01em; transition: background var(--t); margin-top: 4px; }
+.form-submit:hover { background: var(--navy-60); }
+.form-disclaimer { font-size: 10px; color: var(--ink-30); margin-top: 8px; text-align: center; line-height: 1.5; }
+.price-display { display: flex; align-items: baseline; gap: 6px; margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+.price-from { font-size: 11px; color: var(--ink-30); }
+.price-num { font-family: var(--ff-display); font-size: 28px; color: var(--green); font-weight: 400; }
+.price-suffix { font-size: 12px; color: var(--ink-60); }
+.price-note { font-size: 11px; color: var(--ink-30); margin-top: 4px; }
+
+/* Trust bar */
+.trust-bar { background: var(--navy-80); border-top: 1px solid rgba(255,255,255,0.06); padding: 12px 40px; display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+.trust-item { display: flex; align-items: center; gap: 7px; font-size: 11px; color: rgba(255,255,255,0.45); white-space: nowrap; }
+.trust-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+
+/* Main */
+.main { max-width: 1100px; margin: 0 auto; padding: 40px 40px; }
+
+/* Section */
+.section-title { font-family: var(--ff-display); font-size: 24px; font-weight: 400; color: var(--ink); margin-bottom: 6px; letter-spacing: -0.01em; }
+.section-sub { font-size: 14px; font-weight: 300; color: var(--ink-60); line-height: 1.6; margin-bottom: 24px; }
+
+/* Who it's for */
+.who-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin-bottom: 48px; }
+.who-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--r-md); padding: 18px; transition: border-color var(--t); cursor: default; }
+.who-card:hover { border-color: var(--border-med); }
+.who-card-accent { width: 24px; height: 3px; border-radius: 2px; margin-bottom: 12px; }
+.who-card-name { font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 6px; }
+.who-card-desc { font-size: 12px; color: var(--ink-60); line-height: 1.5; font-weight: 300; }
+
+/* How it works */
+.process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-bottom: 48px; position: relative; }
+.process-steps::before { content: ''; position: absolute; top: 20px; left: calc(12.5% + 16px); right: calc(12.5% + 16px); height: 1px; background: var(--border-med); z-index: 0; }
+.process-step { text-align: center; padding: 0 12px; position: relative; z-index: 1; }
+.step-num { width: 40px; height: 40px; border-radius: 50%; background: var(--navy); color: #fff; font-family: var(--ff-display); font-size: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; border: 3px solid var(--cream); }
+.step-title { font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 5px; }
+.step-desc { font-size: 12px; color: var(--ink-60); line-height: 1.5; font-weight: 300; }
+
+/* Pricing */
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 48px; }
+.price-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; }
+.price-card.featured { border-color: var(--navy); border-width: 2px; }
+.price-card-header { padding: 20px 20px 16px; border-bottom: 1px solid var(--border); }
+.price-card.featured .price-card-header { background: var(--navy); }
+.price-card-tag { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-30); margin-bottom: 4px; }
+.price-card.featured .price-card-tag { color: var(--gold); }
+.price-card-name { font-family: var(--ff-display); font-size: 18px; font-weight: 400; color: var(--ink); }
+.price-card.featured .price-card-name { color: #fff; }
+.price-card-price { font-family: var(--ff-display); font-size: 30px; font-weight: 400; color: var(--navy); margin-top: 8px; line-height: 1; }
+.price-card.featured .price-card-price { color: var(--gold); }
+.price-card-from { font-size: 11px; color: var(--ink-30); }
+.price-card.featured .price-card-from { color: rgba(255,255,255,0.4); }
+.price-card-body { padding: 16px 20px 20px; }
+.price-feature { display: flex; align-items: flex-start; gap: 8px; padding: 5px 0; font-size: 12px; color: var(--ink-60); line-height: 1.4; }
+.price-tick { width: 14px; height: 14px; border-radius: 50%; background: var(--green-bg); border: 1px solid var(--green-border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.price-tick svg { width: 7px; height: 5px; stroke: var(--green); stroke-width: 2; fill: none; }
+.price-card-cta { width: 100%; padding: 10px; font-family: var(--ff-body); font-size: 13px; font-weight: 500; border-radius: var(--r-sm); cursor: pointer; transition: all var(--t); margin-top: 14px; border: none; }
+.price-card-cta-primary { background: var(--navy); color: #fff; }
+.price-card-cta-primary:hover { background: var(--navy-60); }
+.price-card-cta-ghost { background: transparent; color: var(--ink); border: 1px solid var(--border-med) !important; }
+.price-card-cta-ghost:hover { border-color: var(--border-med); background: var(--cream); }
+.price-card-cta-gold { background: var(--gold); color: var(--navy); }
+.price-card-cta-gold:hover { background: #caa832; }
+
+/* Guarantee */
+.guarantee { background: var(--navy); border-radius: var(--r-lg); padding: 28px 32px; display: flex; align-items: flex-start; gap: 24px; margin-bottom: 48px; }
+.guarantee-icon { width: 48px; height: 48px; border-radius: 50%; background: rgba(184,151,42,0.15); border: 1px solid rgba(184,151,42,0.3); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.guarantee-title { font-family: var(--ff-display); font-size: 18px; color: #fff; font-weight: 400; margin-bottom: 6px; }
+.guarantee-text { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.65; font-weight: 300; }
+
+/* Reviews */
+.reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 48px; }
+.review-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--r-md); padding: 18px; }
+.stars { display: flex; gap: 3px; margin-bottom: 10px; }
+.star { width: 11px; height: 11px; background: var(--gold); clip-path: polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%); }
+.review-text { font-size: 13px; font-weight: 300; color: var(--ink); line-height: 1.65; margin-bottom: 12px; font-style: italic; }
+.review-author { font-size: 11px; font-weight: 500; color: var(--ink); }
+.review-role { font-size: 10px; color: var(--ink-30); margin-top: 2px; }
+
+/* FAQ */
+.faq-list { margin-bottom: 48px; }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-item:first-child { border-top: 1px solid var(--border); }
+.faq-q { width: 100%; display: flex; align-items: flex-start; justify-content: space-between; padding: 16px 0; background: none; border: none; cursor: pointer; font-family: var(--ff-body); font-size: 14px; color: var(--ink); text-align: left; gap: 16px; }
+.faq-icon { font-size: 18px; color: var(--ink-30); flex-shrink: 0; transition: transform 0.2s; margin-top: 1px; }
+.faq-icon.open { transform: rotate(45deg); }
+.faq-a { display: none; padding: 0 24px 16px 0; font-size: 13px; font-weight: 300; color: var(--ink-60); line-height: 1.7; }
+.faq-a.open { display: block; }
+
+/* Deadlines */
+.deadline-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 48px; }
+.deadline-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--r-md); padding: 16px 18px; display: flex; align-items: flex-start; gap: 14px; }
+.deadline-date { flex-shrink: 0; text-align: center; }
+.deadline-day { font-family: var(--ff-display); font-size: 22px; color: var(--navy); line-height: 1; }
+.deadline-month { font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-30); font-weight: 500; }
+.deadline-title { font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 3px; }
+.deadline-desc { font-size: 12px; color: var(--ink-60); line-height: 1.4; font-weight: 300; }
+.deadline-divider { width: 1px; background: var(--border); flex-shrink: 0; align-self: stretch; }
+
+/* CTA strip */
+.cta-strip { background: var(--gold-pale); border: 1px solid var(--gold-light); border-radius: var(--r-lg); padding: 28px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 16px; }
+.cta-strip-text {}
+.cta-strip-title { font-family: var(--ff-display); font-size: 20px; color: var(--ink); margin-bottom: 4px; font-weight: 400; }
+.cta-strip-sub { font-size: 13px; color: var(--ink-60); font-weight: 300; }
+.cta-strip-btn { flex-shrink: 0; padding: 12px 28px; font-family: var(--ff-display); font-size: 16px; font-weight: 400; background: var(--navy); color: #fff; border: none; border-radius: var(--r-sm); cursor: pointer; white-space: nowrap; transition: background var(--t); }
+.cta-strip-btn:hover { background: var(--navy-60); }
+
+/* Footer */
+.footer { background: var(--navy); padding: 40px 40px 28px; }
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+.footer-brand { font-family: var(--ff-display); font-size: 17px; color: #fff; margin-bottom: 8px; }
+.footer-brand span { color: var(--gold); }
+.footer-desc { font-size: 12px; color: rgba(255,255,255,0.35); line-height: 1.65; font-weight: 300; max-width: 240px; }
+.footer-col-title { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.3); margin-bottom: 12px; }
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.footer-links a { font-size: 12px; color: rgba(255,255,255,0.45); text-decoration: none; transition: color var(--t); }
+.footer-links a:hover { color: rgba(255,255,255,0.8); }
+.footer-bottom { display: flex; gap: 20px; flex-wrap: wrap; }
+.footer-disclaimer { font-size: 11px; color: rgba(255,255,255,0.22); line-height: 1.6; font-weight: 300; flex: 1; }
+.footer-legal { display: flex; gap: 14px; flex-shrink: 0; }
+.footer-legal a { font-size: 11px; color: rgba(255,255,255,0.3); text-decoration: none; }
+.footer-legal a:hover { color: rgba(255,255,255,0.55); }
+
+/* Responsive */
+@media (max-width: 860px) {
+  .nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .breadcrumb { padding: 10px 20px; }
+  .hero { padding: 36px 20px 32px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 28px; }
+  .main { padding: 28px 20px; }
+  .process-steps { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .process-steps::before { display: none; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .deadline-grid { grid-template-columns: 1fr; }
+  .who-grid { grid-template-columns: 1fr 1fr; }
+  .cta-strip { flex-direction: column; align-items: flex-start; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .footer { padding: 32px 20px 24px; }
+  .trust-bar { padding: 10px 20px; }
+}
+@keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+.fade-in { animation: fadeIn 0.5s ease both; }
+.s2 { animation-delay: 0.08s; }
+.s3 { animation-delay: 0.14s; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-logo">Tax<span>Calculator</span>365</a>
+  <ul class="nav-links">
+    <li><a href="/calculators">Calculators</a></li>
+    <li><a href="/services" style="color:#fff">Services</a></li>
+    <li><a href="/guides">Guides</a></li>
+    <li><a href="/organisations">For organisations</a></li>
+  </ul>
+  <a href="#booking" class="nav-cta">Get a quote</a>
+</nav>
+
+<nav class="breadcrumb">
+  <a href="/" class="bc">Home</a><span class="bc-sep">›</span>
+  <a href="/services" class="bc">Services</a><span class="bc-sep">›</span>
+  <span class="bc-curr">Self Assessment filing</span>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="fade-in">
+      <p class="hero-tag">Professional tax filing · UK</p>
+      <h1 class="hero-h1">Self Assessment, filed correctly — first time</h1>
+      <p class="hero-sub">Handled by qualified UK accountants. Fixed fee. No hidden charges. Submitted to HMRC and confirmed.</p>
+      <div class="hero-includes">
+        <div class="hero-include">
+          <div class="hero-include-tick"><svg class="tick-svg" viewBox="0 0 9 7"><polyline points="1,3.5 3.5,6 8,1"/></svg></div>
+          Full income tax and NI calculation reviewed by an accountant
+        </div>
+        <div class="hero-include">
+          <div class="hero-include-tick"><svg class="tick-svg" viewBox="0 0 9 7"><polyline points="1,3.5 3.5,6 8,1"/></svg></div>
+          All allowable expenses and reliefs checked and claimed
+        </div>
+        <div class="hero-include">
+          <div class="hero-include-tick"><svg class="tick-svg" viewBox="0 0 9 7"><polyline points="1,3.5 3.5,6 8,1"/></svg></div>
+          Submitted to HMRC with online reference confirmation
+        </div>
+        <div class="hero-include">
+          <div class="hero-include-tick"><svg class="tick-svg" viewBox="0 0 9 7"><polyline points="1,3.5 3.5,6 8,1"/></svg></div>
+          HMRC correspondence handled on your behalf
+        </div>
+        <div class="hero-include">
+          <div class="hero-include-tick"><svg class="tick-svg" viewBox="0 0 9 7"><polyline points="1,3.5 3.5,6 8,1"/></svg></div>
+          CIS refund claims included at no extra charge
+        </div>
+      </div>
+    </div>
+
+    <!-- Booking form -->
+    <div class="booking-card fade-in s2" id="booking">
+      <div class="booking-card-header">
+        <p class="booking-card-eyebrow">Get started today</p>
+        <p class="booking-card-title">Request your free quote</p>
+      </div>
+      <div class="booking-card-body">
+        <div class="price-display">
+          <span class="price-from">from</span>
+          <span class="price-num">£119</span>
+          <span class="price-suffix">fixed fee</span>
+        </div>
+        <form onsubmit="submitForm(event)">
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="fname">First name</label>
+              <input class="form-input" type="text" id="fname" required placeholder="Jane">
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="lname">Last name</label>
+              <input class="form-input" type="text" id="lname" required placeholder="Smith">
+            </div>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="email">Email address</label>
+            <input class="form-input" type="email" id="email" required placeholder="jane@example.com">
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="phone">Phone number</label>
+            <input class="form-input" type="tel" id="phone" placeholder="07700 900000">
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="type">I am a…</label>
+            <select class="form-select" id="type" required>
+              <option value="" disabled selected>Select your situation</option>
+              <option value="sole-trader">Sole trader / freelancer</option>
+              <option value="landlord">Landlord</option>
+              <option value="paye">PAYE employee with additional income</option>
+              <option value="director">Company director</option>
+              <option value="investor">Investor / savings income</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="taxyear">Tax year</label>
+            <select class="form-select" id="taxyear">
+              <option value="2024-25">2024–25 (deadline Jan 2026)</option>
+              <option value="2023-24">2023–24 (deadline passed — penalty appeal)</option>
+              <option value="multiple">Multiple years</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="notes">Anything else we should know?</label>
+            <textarea class="form-textarea" id="notes" placeholder="e.g. CIS deductions, overseas income, late filing penalty…"></textarea>
+          </div>
+          <button type="submit" class="form-submit" id="submit-btn">Request free quote →</button>
+          <p class="form-disclaimer">No payment required now. A qualified accountant will contact you within 1 working day with a fixed-fee quote. By submitting you agree to our <a href="/terms" style="color:var(--ink-30)">Terms of Service</a> and <a href="/privacy" style="color:var(--ink-30)">Privacy Policy</a>.</p>
+        </form>
+        <!-- Success state -->
+        <div id="form-success" style="display:none;text-align:center;padding:24px 0">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" style="margin:0 auto 12px;display:block"><circle cx="22" cy="22" r="21" stroke="#0a5c3e" stroke-width="1.5"/><polyline points="13,22 19,28 31,16" stroke="#0a5c3e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p style="font-family:var(--ff-display);font-size:18px;color:var(--ink);margin-bottom:6px">Request received</p>
+          <p style="font-size:13px;color:var(--ink-60);line-height:1.6;font-weight:300">A qualified accountant will email you within 1 working day with a fixed-fee quote. Check your spam folder if you don't hear from us.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="trust-bar">
+  <div class="trust-item"><div class="trust-dot"></div>ACCA & ATT qualified accountants</div>
+  <div class="trust-item"><div class="trust-dot"></div>Professional indemnity insured</div>
+  <div class="trust-item"><div class="trust-dot"></div>ICO registered data controller</div>
+  <div class="trust-item"><div class="trust-dot"></div>1-day response guarantee</div>
+  <div class="trust-item"><div class="trust-dot"></div>Fixed fees — no surprises</div>
+</div>
+
+<main class="main">
+
+  <!-- Who it's for -->
+  <div style="margin-bottom:40px" class="fade-in">
+    <h2 class="section-title">Who we file for</h2>
+    <p class="section-sub">If you receive income outside of PAYE or have a tax event not handled automatically, you likely need a Self Assessment return.</p>
+    <div class="who-grid">
+      <div class="who-card">
+        <div class="who-card-accent" style="background:#0F6E56"></div>
+        <p class="who-card-name">Sole traders & freelancers</p>
+        <p class="who-card-desc">Self-employed income, allowable expenses, Class 4 NI, CIS refund claims. From £119.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-card-accent" style="background:#854F0B"></div>
+        <p class="who-card-name">Landlords</p>
+        <p class="who-card-desc">Rental income, Section 24 restriction, allowable expenses, furnished holiday let rules. From £149.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-card-accent" style="background:#185FA5"></div>
+        <p class="who-card-name">PAYE employees</p>
+        <p class="who-card-desc">Side income, High Income Child Benefit Charge, income over £100,000. From £119.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-card-accent" style="background:#534AB7"></div>
+        <p class="who-card-name">Company directors</p>
+        <p class="who-card-desc">Dividend income, director's loan accounts, combined salary and dividend return. From £149.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-card-accent" style="background:#1D9E75"></div>
+        <p class="who-card-name">Investors</p>
+        <p class="who-card-desc">Savings interest above PSA, dividend income above allowance, capital gains. From £119.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-card-accent" style="background:#993C1D"></div>
+        <p class="who-card-name">CIS subcontractors</p>
+        <p class="who-card-desc">Reclaim CIS tax deducted at source. Many construction workers are owed a refund. From £119.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- How it works -->
+  <div style="margin-bottom:40px" class="fade-in">
+    <h2 class="section-title">How it works</h2>
+    <p class="section-sub">Four simple steps, no jargon, no chasing documents. Most returns are filed within 5 working days of receiving your information.</p>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <p class="step-title">Request a quote</p>
+        <p class="step-desc">Complete the form above. An accountant contacts you within 1 working day with a fixed-fee quote.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <p class="step-title">Send your documents</p>
+        <p class="step-desc">Upload your income records, expenses, and any relevant statements via our secure client portal.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <p class="step-title">We prepare and review</p>
+        <p class="step-desc">Your accountant prepares the return, checks for missed reliefs, and sends it to you to approve.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">4</div>
+        <p class="step-title">Filed and confirmed</p>
+        <p class="step-desc">We submit to HMRC and send you the online reference confirmation. Done.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pricing -->
+  <div style="margin-bottom:40px" class="fade-in">
+    <h2 class="section-title">Fixed fees — no surprises</h2>
+    <p class="section-sub">You receive a confirmed, fixed fee before any work begins. We never charge more than quoted.</p>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-card-header">
+          <p class="price-card-tag">Most popular</p>
+          <p class="price-card-name">Standard return</p>
+          <p class="price-card-price">£119</p>
+          <p class="price-card-from">fixed fee</p>
+        </div>
+        <div class="price-card-body">
+          <div class="price-feature"><div class="price-tick"><svg viewBox="0 0 7 5"><polyline points="0.5,2.5 2.5,4.5 6.5,0.5"/></svg></div>One income source (employment or self-employment)</div>
+          <div class="price-feature"><div class="price-tick"><svg viewBox="0 0 7 5"><polyline points="0.5,2.5 2.5,4.5 6.5,0.5"/></svg></div>Allowable expense review</div>
+          <div class="price-feature"><div class="price-tick"><svg viewBox="0 0 7 5"><polyline points="0.5,2.5 2.5,4.5 6.5,0.5"/></svg></div>HMRC submission + confirmation</div>
+          <div class="price-feature"><div class="price-tick"><svg viewBox="0 0 7 5"><polyline points="0.5,2.5 2.5,4.5 6.5,0.5"/></svg></div>CIS refund claim included</div>
+          <div class="price-feature"><div class="price-tick"><svg viewBox="0 0 7 5"><polyline points="0.5,2.5 2.5,4.5 6.5,0.5"/></svg></div>5 working days turnaround</div>
+          <button class="price-card-cta price-card-cta-primary" onclick="scrollToForm()">Get started →</button>
+        </div>
+      </div>
+      <div class="price-card featured">
+        <div class="price-card-header">
+          <p class="price-card-tag">Recommended</p>
+          <p class="price-card-name">Landlord & property</p>
+          <p class="price-card-price">£149</p>
+          <p class="price-card-from">fixed fee</p>
+        </div>
+        <div class="price-card-body">
+          <div class="price-feature"><div class="price-tick"><svg viewBox="0 0 7 5"><polyline points="0.5,2.5 2.5,4.5 6.5,0.5"/></svg></div>Rental income and expenses</div>
+          <div class="price-feature"><div class="price-tick"><svg viewBox="0 0 7 5"><polyline points="0.5,2.5 2.5,4.5 6.5,0.5"/></svg></div>Section 24 restriction applied correctly</div>
+          <div class="price-feature"><div class="price-tick"><svg viewBox="0 0 7 5"><polyline points="0.5,2.5 2.5,4.5 6.5,0.5"/></svg></div>FHL rules if applicable</div>
+          <div class="price-feature"><div class="price-tick"><svg viewBox="0 0 7 5"><polyline points="0.5,2.5 2.5,4.5 6.5,0.5"/></svg></div>Up to 3 properties</div>
+          <div class="price-feature"><div class="price-tick"><svg viewBox="0 0 7 5"><polyline points="0.5,2.5 2.5,4.5 6.5,0.5"/></svg></div>HMRC submission + confirmation</div>
+          <button class="price-card-cta price-card-cta-gold" onclick="scrollToForm()">Get started →</button>
+        </div>
+      </div>
+      <div class="price-card">
+        <div class="price-card-header">
+          <p class="price-card-tag">Complex returns</p>
+          <p class="price-card-name">Director & multi-source</p>
+          <p class="price-card-price">£199+</p>
+          <p class="price-card-from">fixed fee — quoted individually</p>
+        </div>
+        <div class="price-card-body">
+          <div class="price-feature"><div class="price-tick"><svg viewBox="0 0 7 5"><polyline points="0.5,2.5 2.5,4.5 6.5,0.5"/></svg></div>Salary + dividends</div>
+          <div class="price-feature"><div class="price-tick"><svg viewBox="0 0 7 5"><polyline points="0.5,2.5 2.5,4.5 6.5,0.5"/></svg></div>Multiple income sources</div>
+          <div class="price-feature"><div class="price-tick"><svg viewBox="0 0 7 5"><polyline points="0.5,2.5 2.5,4.5 6.5,0.5"/></svg></div>Capital gains</div>
+          <div class="price-feature"><div class="price-tick"><svg viewBox="0 0 7 5"><polyline points="0.5,2.5 2.5,4.5 6.5,0.5"/></svg></div>Overseas income</div>
+          <div class="price-feature"><div class="price-tick"><svg viewBox="0 0 7 5"><polyline points="0.5,2.5 2.5,4.5 6.5,0.5"/></svg></div>Prior year amendments</div>
+          <button class="price-card-cta price-card-cta-ghost" onclick="scrollToForm()">Request quote →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Guarantee -->
+  <div class="guarantee fade-in">
+    <div class="guarantee-icon">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2L4 5v6c0 4.4 3 8.4 7 9.5C15 19.4 18 15.4 18 11V5L11 2z" stroke="#b8972a" stroke-width="1.4" stroke-linejoin="round"/><polyline points="8,11 10,13 14,9" stroke="#b8972a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div>
+      <p class="guarantee-title">Our accuracy guarantee</p>
+      <p class="guarantee-text">Every return is reviewed by a qualified accountant (ACCA or ATT) before submission. If HMRC raises an enquiry as a result of an error we made, we handle the response at no additional cost. We carry professional indemnity insurance on every engagement. Your liability remains solely with HMRC — our job is to minimise it.</p>
+    </div>
+  </div>
+
+  <!-- Key deadlines -->
+  <div style="margin: 48px 0 0" class="fade-in">
+    <h2 class="section-title">Key deadlines — don't miss them</h2>
+    <p class="section-sub">HMRC issues automatic penalties for late filing and late payment. Missing the deadline by even one day triggers a £100 fine.</p>
+    <div class="deadline-grid">
+      <div class="deadline-card">
+        <div class="deadline-date"><div class="deadline-day">31</div><div class="deadline-month">Jan 2026</div></div>
+        <div class="deadline-divider"></div>
+        <div><p class="deadline-title">Online filing — 2024–25 tax year</p><p class="deadline-desc">Submit your Self Assessment return online and pay any tax due. Late penalty: £100 immediately, increasing after 3 months.</p></div>
+      </div>
+      <div class="deadline-card">
+        <div class="deadline-date"><div class="deadline-day">31</div><div class="deadline-month">Oct 2025</div></div>
+        <div class="deadline-divider"></div>
+        <div><p class="deadline-title">Paper filing — 2024–25 tax year</p><p class="deadline-desc">If filing a paper return, the deadline is 31 October — three months earlier than the online deadline.</p></div>
+      </div>
+      <div class="deadline-card">
+        <div class="deadline-date"><div class="deadline-day">31</div><div class="deadline-month">Jan 2026</div></div>
+        <div class="deadline-divider"></div>
+        <div><p class="deadline-title">Payments on account</p><p class="deadline-desc">First payment on account for 2025–26 is due alongside your 2024–25 balancing payment on 31 January 2026.</p></div>
+      </div>
+      <div class="deadline-card">
+        <div class="deadline-date"><div class="deadline-day">60</div><div class="deadline-month">days CGT</div></div>
+        <div class="deadline-divider"></div>
+        <div><p class="deadline-title">CGT property report — separate deadline</p><p class="deadline-desc">Capital gains on UK residential property must be reported and paid within 60 days of completion. This is separate from Self Assessment.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reviews -->
+  <div style="margin: 48px 0 0" class="fade-in">
+    <h2 class="section-title">What our clients say</h2>
+    <p class="section-sub" style="margin-bottom:20px">All reviews are from verified clients who used our filing service.</p>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+        <p class="review-text">"I'd been filing my own returns for three years and getting increasingly nervous about it. Switched to Tax Calculator 365 last year — the accountant found £840 in expenses I'd missed. The fee paid for itself."</p>
+        <p class="review-author">Sarah B.</p>
+        <p class="review-role">Freelance copywriter, London</p>
+      </div>
+      <div class="review-card">
+        <div class="stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+        <p class="review-text">"As a landlord with three properties and a PAYE job, my return was getting complicated. Done in four days, Section 24 handled correctly. The peace of mind is worth more than the fee."</p>
+        <p class="review-author">Mohammed A.</p>
+        <p class="review-role">Landlord & engineer, Birmingham</p>
+      </div>
+      <div class="review-card">
+        <div class="stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+        <p class="review-text">"CIS refund processed and returned within two weeks of sending my documents. I'd left it for two years — they handled both years for £119 each. Brilliant service."</p>
+        <p class="review-author">Tom H.</p>
+        <p class="review-role">Electrician, Manchester</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div style="margin: 48px 0 0" class="fade-in">
+    <h2 class="section-title">Frequently asked questions</h2>
+    <p class="section-sub" style="margin-bottom:20px">Questions about the service? Find answers below, or contact us directly.</p>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)"><span>How quickly will you file my return?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a">Most returns are filed within 3–5 working days of receiving all required documents. Complex returns (multiple income sources, overseas income) may take up to 7 working days. We will always give you an accurate estimate during the quoting stage.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)"><span>What documents do I need to send?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a">The documents required depend on your income sources. Typically: P60 or P45 (PAYE employees), invoices and bank statements (self-employed), rental income statements and mortgage statements (landlords), dividend vouchers (directors), and CIS deduction statements (construction workers). We provide a full checklist after you request a quote.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)"><span>Is the fee fixed before work starts?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a">Yes, always. We confirm a fixed fee in writing before any work begins. We never charge more than the agreed amount, and we never add surcharges for complexity that was apparent at the quoting stage. If your return turns out to be more complex than quoted, we will discuss this with you before proceeding.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)"><span>What qualifications do your accountants hold?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a">All returns are prepared and reviewed by accountants holding ACCA (Association of Chartered Certified Accountants) or ATT (Association of Taxation Technicians) qualifications. We carry professional indemnity insurance on every engagement. Details of the qualified accountant reviewing your return are provided in your engagement letter.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)"><span>What if HMRC queries my return?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a">If HMRC raises an enquiry as a result of an error we made, we handle the response at no additional cost. Our professional indemnity insurance covers this. If HMRC queries information you provided that turned out to be incorrect, we will support you through the process and advise on the best response, charged at our standard hourly rate.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)"><span>Can you file late returns or amend previous years?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a">Yes. We file late returns and can help with penalty appeals. HMRC allows amendments to Self Assessment returns within 12 months of the original filing deadline. For older years, voluntary disclosures can be made. We handle all of these — please mention your situation in the quote request form.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA strip -->
+  <div style="margin: 48px 0 16px" class="fade-in">
+    <div class="cta-strip">
+      <div class="cta-strip-text">
+        <p class="cta-strip-title">Ready to get your return filed?</p>
+        <p class="cta-strip-sub">Request your free fixed-fee quote. A qualified accountant responds within 1 working day.</p>
+      </div>
+      <button class="cta-strip-btn" onclick="scrollToForm()">Get your quote →</button>
+    </div>
+    <p style="font-size:11px;color:var(--ink-30);line-height:1.6;margin-top:10px">Estimates only. Nothing on this page constitutes regulated financial advice. Tax filing services are provided under separate engagement letters. Tax Calculator 365 accepts no liability for losses arising from calculator estimates. Professional indemnity insurance is held on all filing engagements.</p>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <p class="footer-brand">Tax<span>Calculator</span>365</p>
+        <p class="footer-desc">Free UK tax calculators and professional filing services for employees, sole traders, landlords, and directors.</p>
+      </div>
+      <div>
+        <p class="footer-col-title">Calculators</p>
+        <ul class="footer-links">
+          <li><a href="/calculators/take-home-pay">Take-home pay</a></li>
+          <li><a href="/calculators/sole-trader">Self-employed</a></li>
+          <li><a href="/calculators/landlord-rental-income">Landlord</a></li>
+          <li><a href="/calculators/cgt-property">Capital gains</a></li>
+          <li><a href="/calculators">All calculators</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Services</p>
+        <ul class="footer-links">
+          <li><a href="/services/self-assessment" style="color:rgba(255,255,255,0.75)">Self Assessment filing</a></li>
+          <li><a href="/services/cgt-reporting">CGT reporting</a></li>
+          <li><a href="/services/mtd-sole-traders">MTD compliance</a></li>
+          <li><a href="/services/company-accounts">Company accounts</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Resources</p>
+        <ul class="footer-links">
+          <li><a href="/guides/self-employed">Self-employed guides</a></li>
+          <li><a href="/guides/landlords">Landlord guides</a></li>
+          <li><a href="/taxopedia">Taxopedia A–Z</a></li>
+          <li><a href="/newsletter">Newsletter</a></li>
+          <li><a href="/about">About us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-disclaimer">Tax Calculator 365 provides calculators and tax filing services. Calculators produce estimates only and do not constitute tax advice. Filing services are provided by qualified accountants under separate engagement letters. Nothing on this site constitutes regulated financial advice within the meaning of the Financial Services and Markets Act 2000. Tax Calculator 365 is registered with the Information Commissioner's Office. Professional indemnity insurance is held on all filing engagements.</p>
+      <div class="footer-legal">
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/cookies">Cookies</a>
+        <a href="/accessibility">Accessibility</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function scrollToForm(){ document.getElementById('booking').scrollIntoView({behavior:'smooth',block:'start'}); }
+function toggleFAQ(btn){
+  const a=btn.nextElementSibling, icon=btn.querySelector('.faq-icon');
+  const open=a.classList.toggle('open');
+  icon.classList.toggle('open',open);
+  btn.setAttribute('aria-expanded',open);
+}
+function submitForm(e){
+  e.preventDefault();
+  document.querySelector('form').style.display='none';
+  document.getElementById('form-success').style.display='block';
+}
+</script>
+</body>
+</html>
