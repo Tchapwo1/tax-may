@@ -1,9 +1,12 @@
 'use client';
 
 import React from 'react';
+import { motion } from 'framer-motion';
 import { computeComparisonDelta } from '@/features/paye/hooks/useComparisonEngine';
 import { useComparisonStore } from '@/shared/store/useComparisonStore';
-import { ArrowRight, TrendingUp, TrendingDown, RefreshCcw, X } from 'lucide-react';
+import { FadeSlide } from '@/shared/components/motion/FadeSlide';
+import { AnimatedNumber } from '@/shared/components/motion/AnimatedNumber';
+import { RefreshCcw, X, TrendingUp, TrendingDown } from 'lucide-react';
 
 export function ComparisonPanel() {
   const { scenarioA, scenarioB, clearScenarios } = useComparisonStore();
@@ -15,9 +18,6 @@ export function ComparisonPanel() {
     scenarioB.input,
   );
 
-  const fmt = (n: number) =>
-    '£' + Math.round(Math.abs(n)).toLocaleString('en-GB');
-
   const deltaClass = (n: number) =>
     n > 0 ? 'text-green-400' : n < 0 ? 'text-red-400' : 'text-slate-300';
 
@@ -28,7 +28,7 @@ export function ComparisonPanel() {
   };
 
   return (
-    <div className="bg-slate-900/80 backdrop-blur-md border border-slate-700/50 rounded-2xl p-8 shadow-2xl relative overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-500">
+    <FadeSlide className="bg-slate-900/80 backdrop-blur-md border border-slate-700/50 rounded-2xl p-8 shadow-2xl relative overflow-hidden">
       {/* Background Glow */}
       <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF4F00]/5 rounded-full blur-3xl pointer-events-none"></div>
       
@@ -50,59 +50,75 @@ export function ComparisonPanel() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
         {/* Scenario A Card */}
-        <div className="p-6 rounded-xl bg-[#1E1E2F] border border-slate-800 shadow-lg">
+        <FadeSlide delay={0.1} className="p-6 rounded-xl bg-[#1E1E2F] border border-slate-800 shadow-lg">
           <p className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">{scenarioA.label}</p>
-          <p className="text-3xl font-black text-white">{fmt(a.annual.takeHome)}</p>
+          <AnimatedNumber 
+            value={a.annual.takeHome} 
+            className="text-3xl font-black text-white block" 
+          />
           <p className="text-sm text-slate-400 mt-1">Net Annual</p>
-        </div>
+        </FadeSlide>
 
         {/* Delta Visualizer */}
-        <div className="flex flex-col items-center justify-center py-4 relative">
+        <motion.div 
+          className="flex flex-col items-center justify-center py-4 relative"
+          animate={{
+            scale: diff.takeHome !== 0 ? [1, 1.05, 1] : 1,
+          }}
+          transition={{ duration: 0.4, ease: 'easeOut' }}
+        >
           <div className="absolute inset-0 flex items-center justify-center opacity-10">
              <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-400 to-transparent"></div>
           </div>
-          <div className={`relative z-10 text-4xl font-black tracking-tighter flex items-center gap-2 ${deltaClass(diff.takeHome)}`}>
-            {diff.takeHome > 0 ? '+' : diff.takeHome < 0 ? '-' : ''}
-            {fmt(diff.takeHome)}
-          </div>
+          <AnimatedNumber 
+            value={diff.takeHome} 
+            className={`relative z-10 text-4xl font-black tracking-tighter ${deltaClass(diff.takeHome)}`}
+            format={(n) => `${n > 0 ? '+' : n < 0 ? '-' : ''}£${Math.round(Math.abs(n)).toLocaleString()}`}
+          />
           <p className="text-sm font-medium text-slate-500 uppercase tracking-widest mt-2 flex items-center gap-2">
             <DeltaIcon value={diff.takeHome} />
             Divergence
           </p>
-        </div>
+        </motion.div>
 
         {/* Scenario B Card */}
-        <div className="p-6 rounded-xl bg-[#1E1E2F] border border-[#FF4F00]/30 shadow-lg shadow-orange-500/5">
+        <FadeSlide delay={0.2} className="p-6 rounded-xl bg-[#1E1E2F] border border-[#FF4F00]/30 shadow-lg shadow-orange-500/5">
           <p className="text-xs font-bold uppercase tracking-widest text-[#FF4F00] mb-2">{scenarioB.label}</p>
-          <p className="text-3xl font-black text-white">{fmt(b.annual.takeHome)}</p>
+          <AnimatedNumber 
+            value={b.annual.takeHome} 
+            className="text-3xl font-black text-white block" 
+          />
           <p className="text-sm text-slate-400 mt-1">Net Annual</p>
-        </div>
+        </FadeSlide>
       </div>
 
       {/* Detailed Breakdown Diffs */}
-      <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 border-t border-slate-800/50 pt-8">
+      <FadeSlide delay={0.3} className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 border-t border-slate-800/50 pt-8">
         <div className="flex flex-col items-center p-4 rounded-xl bg-slate-800/30 border border-slate-800">
           <span className="text-xs text-slate-500 uppercase font-bold tracking-wider mb-1">Income Tax</span>
-          <span className={`text-lg font-bold ${deltaClass(-diff.incomeTax)}`}>
-            {diff.incomeTax > 0 ? '-' : diff.incomeTax < 0 ? '+' : ''}
-            {fmt(diff.incomeTax)}
-          </span>
+          <AnimatedNumber 
+            value={diff.incomeTax} 
+            className={`text-lg font-bold ${deltaClass(-diff.incomeTax)}`}
+            format={(n) => `${n > 0 ? '-' : n < 0 ? '+' : ''}£${Math.round(Math.abs(n)).toLocaleString()}`}
+          />
         </div>
         <div className="flex flex-col items-center p-4 rounded-xl bg-slate-800/30 border border-slate-800">
           <span className="text-xs text-slate-500 uppercase font-bold tracking-wider mb-1">National Insurance</span>
-          <span className={`text-lg font-bold ${deltaClass(-diff.nationalInsurance)}`}>
-            {diff.nationalInsurance > 0 ? '-' : diff.nationalInsurance < 0 ? '+' : ''}
-            {fmt(diff.nationalInsurance)}
-          </span>
+          <AnimatedNumber 
+            value={diff.nationalInsurance} 
+            className={`text-lg font-bold ${deltaClass(-diff.nationalInsurance)}`}
+            format={(n) => `${n > 0 ? '-' : n < 0 ? '+' : ''}£${Math.round(Math.abs(n)).toLocaleString()}`}
+          />
         </div>
         <div className="flex flex-col items-center p-4 rounded-xl bg-slate-800/30 border border-slate-800">
           <span className="text-xs text-slate-500 uppercase font-bold tracking-wider mb-1">Effective Rate</span>
-          <span className={`text-lg font-bold ${deltaClass(-diff.effectiveTaxRate)}`}>
-            {diff.effectiveTaxRate > 0 ? '-' : diff.effectiveTaxRate < 0 ? '+' : ''}
-            {(Math.abs(diff.effectiveTaxRate) * 100).toFixed(1)}%
-          </span>
+          <AnimatedNumber 
+            value={diff.effectiveTaxRate} 
+            className={`text-lg font-bold ${deltaClass(-diff.effectiveTaxRate)}`}
+            format={(n) => `${n > 0 ? '-' : n < 0 ? '+' : ''}${(Math.abs(n) * 100).toFixed(1)}%`}
+          />
         </div>
-      </div>
-    </div>
+      </FadeSlide>
+    </FadeSlide>
   );
 }
