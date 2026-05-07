@@ -1,26 +1,10 @@
 import React from 'react';
-import { Calculator, BookOpen, Home, FileText, ArrowRight, ShieldCheck, Zap } from 'lucide-react';
+import Link from 'next/link';
+import { Calculator, BookOpen, Home, FileText, ArrowRight } from 'lucide-react';
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-[#1E1E2F] text-slate-200 font-sans selection:bg-[#FF4F00] selection:text-white">
-      {/* Navigation */}
-      <nav className="border-b border-slate-800/60 bg-[#1E1E2F]/80 backdrop-blur-md sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#FF4F00] to-orange-600 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-orange-500/20">
-              T
-            </div>
-            <span className="text-xl font-semibold tracking-tight text-white">TaxCalculator<span className="text-[#FF4F00]">365</span></span>
-          </div>
-          <div className="hidden md:flex gap-8 text-sm font-medium text-slate-400">
-            <a href="/self-employed-guides.html" className="hover:text-white transition-colors">Guides</a>
-            <a href="/paye-calculator.html" className="hover:text-white transition-colors">PAYE</a>
-            <a href="/landlord-calculator.html" className="hover:text-white transition-colors">Landlords</a>
-          </div>
-        </div>
-      </nav>
-
+    <div className="bg-[#1E1E2F] text-slate-200 font-sans selection:bg-[#FF4F00] selection:text-white">
       {/* Hero Section */}
       <section className="relative pt-24 pb-32 overflow-hidden">
         {/* Glow Effects */}
@@ -42,13 +26,13 @@ export default function LandingPage() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a href="/paye-calculator.html" className="flex items-center gap-2 px-8 py-4 rounded-xl bg-[#FF4F00] text-white font-semibold hover:bg-orange-600 transition-all shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 hover:-translate-y-0.5 active:translate-y-0">
+            <Link href="/paye-calculator.html" className="flex items-center gap-2 px-8 py-4 rounded-xl bg-[#FF4F00] text-white font-semibold hover:bg-orange-600 transition-all shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 hover:-translate-y-0.5 active:translate-y-0">
               Calculate PAYE Tax
               <ArrowRight className="w-5 h-5" />
-            </a>
-            <a href="/self-employed-guides.html" className="flex items-center gap-2 px-8 py-4 rounded-xl bg-slate-800 text-white font-semibold hover:bg-slate-700 transition-all border border-slate-700 hover:border-slate-600">
+            </Link>
+            <Link href="/self-employed-guides.html" className="flex items-center gap-2 px-8 py-4 rounded-xl bg-slate-800 text-white font-semibold hover:bg-slate-700 transition-all border border-slate-700 hover:border-slate-600">
               Read the Guides
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -63,7 +47,7 @@ export default function LandingPage() {
 
           <div className="grid md:grid-cols-3 gap-6">
             {/* PAYE Card */}
-            <a href="/paye-calculator.html" className="group p-8 rounded-2xl bg-[#1E1E2F] border border-slate-800 hover:border-[#FF4F00]/50 transition-all hover:shadow-[0_0_30px_rgba(255,79,0,0.1)] relative overflow-hidden flex flex-col h-full">
+            <Link href="/paye-calculator.html" className="group p-8 rounded-2xl bg-[#1E1E2F] border border-slate-800 hover:border-[#FF4F00]/50 transition-all hover:shadow-[0_0_30px_rgba(255,79,0,0.1)] relative overflow-hidden flex flex-col h-full">
               <div className="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-[#FF4F00] mb-6 group-hover:scale-110 transition-transform">
                 <Calculator className="w-6 h-6" />
               </div>
@@ -74,10 +58,10 @@ export default function LandingPage() {
               <div className="flex items-center text-[#FF4F00] font-medium text-sm mt-auto">
                 Open Calculator <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
               </div>
-            </a>
+            </Link>
 
             {/* Landlord Card */}
-            <a href="/landlord-calculator.html" className="group p-8 rounded-2xl bg-[#1E1E2F] border border-slate-800 hover:border-[#FF4F00]/50 transition-all hover:shadow-[0_0_30px_rgba(255,79,0,0.1)] relative overflow-hidden flex flex-col h-full">
+            <Link href="/landlord-calculator.html" className="group p-8 rounded-2xl bg-[#1E1E2F] border border-slate-800 hover:border-[#FF4F00]/50 transition-all hover:shadow-[0_0_30px_rgba(255,79,0,0.1)] relative overflow-hidden flex flex-col h-full">
               <div className="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-[#FF4F00] mb-6 group-hover:scale-110 transition-transform">
                 <Home className="w-6 h-6" />
               </div>
@@ -88,10 +72,10 @@ export default function LandingPage() {
               <div className="flex items-center text-[#FF4F00] font-medium text-sm mt-auto">
                 Open Calculator <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
               </div>
-            </a>
+            </Link>
 
             {/* Self Assessment Card */}
-            <a href="/self-assessment-service.html" className="group p-8 rounded-2xl bg-[#1E1E2F] border border-slate-800 hover:border-[#FF4F00]/50 transition-all hover:shadow-[0_0_30px_rgba(255,79,0,0.1)] relative overflow-hidden flex flex-col h-full">
+            <Link href="/self-assessment-service.html" className="group p-8 rounded-2xl bg-[#1E1E2F] border border-slate-800 hover:border-[#FF4F00]/50 transition-all hover:shadow-[0_0_30px_rgba(255,79,0,0.1)] relative overflow-hidden flex flex-col h-full">
               <div className="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-[#FF4F00] mb-6 group-hover:scale-110 transition-transform">
                 <FileText className="w-6 h-6" />
               </div>
@@ -102,7 +86,7 @@ export default function LandingPage() {
               <div className="flex items-center text-[#FF4F00] font-medium text-sm mt-auto">
                 View Service <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
               </div>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -120,10 +104,10 @@ export default function LandingPage() {
               <p className="text-slate-400 mb-8 leading-relaxed text-lg">
                 Stop guessing. Learn exactly how the UK tax system works with our comprehensive, video-enhanced guides. Master the Personal Allowance, National Insurance, and the hidden 60% tax trap.
               </p>
-              <a href="/self-employed-guides.html" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-slate-800 text-white font-medium hover:bg-slate-700 transition-colors border border-slate-600">
+              <Link href="/self-employed-guides.html" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-slate-800 text-white font-medium hover:bg-slate-700 transition-colors border border-slate-600">
                 Explore the Guides
                 <ArrowRight className="w-4 h-4" />
-              </a>
+              </Link>
             </div>
             
             {/* Visual Element */}
@@ -151,26 +135,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="border-t border-slate-800/60 py-12 bg-slate-950 text-center">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="flex items-center justify-center gap-2 mb-6">
-            <div className="w-6 h-6 rounded bg-gradient-to-br from-[#FF4F00] to-orange-600 flex items-center justify-center text-white font-bold text-xs">
-              T
-            </div>
-            <span className="text-lg font-semibold tracking-tight text-white">TaxCalculator<span className="text-[#FF4F00]">365</span></span>
-          </div>
-          <p className="text-slate-500 text-sm mb-6 max-w-md mx-auto">
-            Professional tax modeling instruments for the UK. Data provided is for informational purposes only and does not constitute financial advice.
-          </p>
-          <div className="flex justify-center gap-6 text-sm">
-            <a href="/legal.html" className="text-slate-400 hover:text-white transition-colors">Privacy Policy</a>
-            <a href="/legal.html" className="text-slate-400 hover:text-white transition-colors">Terms of Service</a>
-            <a href="/cookie-consent.html" className="text-slate-400 hover:text-white transition-colors">Cookies</a>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
