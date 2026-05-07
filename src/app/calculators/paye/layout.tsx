@@ -1,4 +1,5 @@
 import { payeMetadata } from '@/shared/config/metadata';
+import { Suspense } from 'react';
 
 export const metadata = payeMetadata();
 
@@ -7,5 +8,9 @@ export default function PayeLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <Suspense fallback={null}>
+      {children}
+    </Suspense>
+  );
 }

@@ -14,6 +14,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteMetadata.baseUrl),
 };
 
+import { NuqsAdapter } from 'nuqs/adapters/next/app';
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -22,9 +24,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        <NuqsAdapter>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+        </NuqsAdapter>
       </body>
     </html>
   );

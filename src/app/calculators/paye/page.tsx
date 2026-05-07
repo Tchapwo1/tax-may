@@ -21,9 +21,15 @@ import {
   Copy
 } from 'lucide-react';
 
-export default function PayeCalculatorPage() {
+import { Suspense } from 'react';
+
+function QuerySync() {
   usePayeQuerySync();
   useComparisonQuerySync();
+  return null;
+}
+
+function PayeCalculatorContent() {
   const {
     state,
     result,
@@ -51,6 +57,9 @@ export default function PayeCalculatorPage() {
 
   return (
     <FadeSlide className="min-h-screen bg-[#1E1E2F] text-slate-200 font-sans selection:bg-[#FF4F00] selection:text-white pb-20">
+      <Suspense fallback={null}>
+        <QuerySync />
+      </Suspense>
       <div className="max-w-6xl mx-auto px-6 pt-12">
         
         {/* Breadcrumb / Header */}
@@ -302,5 +311,15 @@ export default function PayeCalculatorPage() {
     </FadeSlide>
   );
 }
+
+export default function PayeCalculatorPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-[#1E1E2F] flex items-center justify-center">
+        <div className="text-orange-500 animate-pulse font-bold tracking-widest uppercase">Initializing Engine...</div>
+      </div>
+    }>
+      <PayeCalculatorContent />
+    </Suspense>
   );
 }
