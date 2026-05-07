@@ -4,11 +4,14 @@ import "./globals.css";
 import { Navbar } from "@/shared/components/layout/Navbar";
 import { Footer } from "@/shared/components/layout/Footer";
 
+import { siteMetadata } from "@/shared/config/metadata";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "TaxCalculator365 | Professional UK Tax Instruments",
-  description: "Accurate UK tax calculators and definitive guides for employees and landlords.",
+  title: siteMetadata.defaultTitle,
+  description: siteMetadata.defaultDescription,
+  metadataBase: new URL(siteMetadata.baseUrl),
 };
 
 export default function RootLayout({
