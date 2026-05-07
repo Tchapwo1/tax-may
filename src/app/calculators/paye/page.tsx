@@ -3,6 +3,8 @@
 import React from 'react';
 import { usePayeCalculator } from '@/features/paye/hooks/usePayeCalculator';
 import { usePayeQuerySync } from '@/features/paye/hooks/usePayeQuerySync';
+import { useComparisonStore } from '@/shared/store/useComparisonStore';
+import { ComparisonPanel } from '@/features/paye/components/ComparisonPanel';
 import { 
   Calculator, 
   Info, 
@@ -11,7 +13,8 @@ import {
   ArrowRight,
   ChevronDown,
   PieChart,
-  Wallet
+  Wallet,
+  Copy
 } from 'lucide-react';
 
 export default function PayeCalculatorPage() {
@@ -27,6 +30,16 @@ export default function PayeCalculatorPage() {
     setBlindAllowance,
     setMode,
   } = usePayeCalculator();
+
+  const { saveScenarioA, saveScenarioB, scenarioA, scenarioB } = useComparisonStore();
+
+  const buildInput = () => ({
+    gross: result?.annual.gross || 0,
+    isScottish: state.isScottish,
+    pensionPercent: parseFloat(state.pensionPercent) || 0,
+    studentLoanPlan: state.studentLoanPlan,
+    blindAllowance: state.blindAllowance,
+  });
 
   const formatCurrency = (val: number) => 
     `£${Math.round(val).toLocaleString('en-GB')}`;
@@ -212,7 +225,7 @@ export default function PayeCalculatorPage() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-4 mb-6">
                   <div className="bg-white/10 rounded-xl p-4">
                     <p className="text-orange-100 text-xs uppercase font-bold tracking-wider mb-1">Monthly</p>
                     <p className="text-xl font-bold">{result ? formatCurrency(result.monthly.takeHome) : '£0'}</p>
@@ -221,6 +234,32 @@ export default function PayeCalculatorPage() {
                     <p className="text-orange-100 text-xs uppercase font-bold tracking-wider mb-1">Weekly</p>
                     <p className="text-xl font-bold">{result ? formatCurrency(result.weekly.takeHome) : '£0'}</p>
                   </div>
+                </div>
+
+                {/* Scenario Actions */}
+                <div className="grid grid-cols-2 gap-3 pt-4 border-t border-white/10">
+                  <button
+                    onClick={() => saveScenarioA(buildInput())}
+                    className={`flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-bold transition-all ${
+                      scenarioA.input 
+                        ? 'bg-white/10 text-white hover:bg-white/20' 
+                        : 'bg-white text-[#FF4F00] hover:bg-orange-50'
+                    }`}
+                  >
+                    <Copy className="w-4 h-4" />
+                    {scenarioA.input ? 'Update A' : 'Set as A'}
+                  </button>
+                  <button
+                    onClick={() => saveScenarioB(buildInput())}
+                    className={`flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-bold transition-all ${
+                      scenarioB.input 
+                        ? 'bg-white/10 text-white hover:bg-white/20' 
+                        : 'bg-white text-[#FF4F00] hover:bg-orange-50'
+                    }`}
+                  >
+                    <TrendingUp className="w-4 h-4" />
+                    {scenarioB.input ? 'Update B' : 'Set as B'}
+                  </button>
                 </div>
               </div>
             </div>
@@ -234,6 +273,11 @@ export default function PayeCalculatorPage() {
             </div>
           </div>
 
+        </div>
+
+        {/* Comparison Section */}
+        <div className="mt-16">
+          <ComparisonPanel />
         </div>
       </div>
     </div>
