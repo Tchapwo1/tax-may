@@ -110,26 +110,24 @@ export default function LandingPage() {
               </Link>
             </div>
             
-            {/* Visual Element */}
+            {/* Visual Element: Actual Video Embed */}
             <div className="flex-1 w-full max-w-md relative">
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#FF4F00]/20 to-transparent blur-2xl rounded-3xl"></div>
-              <div className="bg-[#1E1E2F] border border-slate-700 rounded-2xl shadow-2xl overflow-hidden relative">
-                <div className="border-b border-slate-800 bg-slate-900/50 p-4 flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
-                  <div className="ml-4 text-xs text-slate-500 font-mono">Personal Allowance Guide</div>
-                </div>
-                <div className="p-6">
-                  <div className="w-full h-32 bg-slate-800/50 rounded-xl mb-4 flex items-center justify-center border border-slate-700/50">
-                     <div className="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center shadow-lg shadow-red-600/20">
-                       <div className="w-0 h-0 border-t-[6px] border-t-transparent border-l-[10px] border-l-white border-b-[6px] border-b-transparent ml-1"></div>
-                     </div>
-                  </div>
-                  <div className="w-3/4 h-4 bg-slate-800 rounded-full mb-3"></div>
-                  <div className="w-full h-4 bg-slate-800 rounded-full mb-3"></div>
-                  <div className="w-5/6 h-4 bg-slate-800 rounded-full"></div>
-                </div>
+              <div className="absolute inset-0 bg-[#FF4F00]/10 blur-3xl rounded-3xl pointer-events-none"></div>
+              <div className="relative aspect-video w-full rounded-2xl overflow-hidden border border-slate-700 shadow-2xl shadow-black/50">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/j5vtoKmkGU4?si=XPN_87jc6oCKGoBN"
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="bg-slate-900"
+                />
+              </div>
+              <div className="mt-4 flex items-center justify-center gap-2 text-slate-500 text-xs font-mono italic">
+                <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                Now Playing: Personal Allowance Masterclass
               </div>
             </div>
           </div>
