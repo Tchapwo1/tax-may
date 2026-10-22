@@ -7,6 +7,7 @@ import { useComparisonStore } from '@/shared/store/useComparisonStore';
 import { ComparisonPanel } from './ComparisonPanel';
 import { InputField } from '@/shared/components/InputField';
 import { StickySummary } from '@/shared/components/StickySummary';
+import { AffiliateBanner } from '@/shared/components/AffiliateBanner';
 import { AnimatedNumber } from '@/shared/components/motion/AnimatedNumber';
 import { FadeSlide } from '@/shared/components/motion/FadeSlide';
 import { 
@@ -54,6 +55,7 @@ export function PayeInstrument() {
               { label: 'Effective Rate', value: `${(result ? result.annual.effectiveTaxRate * 100 : 0).toFixed(1)}%`, isRaw: true }
             ]}
           />
+          <AffiliateBanner type="pensionbee" layout="compact" className="mt-6" />
         </div>
       </div>
     </div>

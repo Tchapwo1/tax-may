@@ -16,6 +16,22 @@ export const metadata: Metadata = {
 
 import { NuqsAdapter } from 'nuqs/adapters/next/app';
 
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  'name': 'TaxCalculator365',
+  'url': 'https://www.taxcalculator365.com',
+  'description': 'Professional UK tax modeling engine for PAYE employees, Buy-to-Let landlords, and Sole Traders.',
+  'applicationCategory': 'FinanceApplication',
+  'operatingSystem': 'All',
+  'offers': {
+    '@type': 'Offer',
+    'price': '0',
+    'priceCurrency': 'GBP',
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -23,7 +39,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <head>
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        </head>
+        <body className={inter.className}>
         <NuqsAdapter>
           <Navbar />
           <main>{children}</main>

@@ -5,6 +5,7 @@ import { useSelfAssessmentCalculator } from '@/features/self-assessment/hooks/us
 import { useSelfAssessmentQuerySync } from '@/features/self-assessment/hooks/useSelfAssessmentQuerySync';
 import { InputField } from '@/shared/components/InputField';
 import { StickySummary } from '@/shared/components/StickySummary';
+import { AffiliateBanner } from '@/shared/components/AffiliateBanner';
 import { FadeSlide } from '@/shared/components/motion/FadeSlide';
 import { 
   Calculator, 
@@ -138,9 +139,11 @@ function SelfAssessmentInstrument() {
               </div>
             </div>
           </div>
-          <button onClick={state.reset} className="w-full py-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white font-bold transition-all text-sm border border-slate-700">
+          <button onClick={state.reset} className="w-full py-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white font-bold transition-all text-sm border border-slate-700 mb-6">
             Reset Modelling Session
           </button>
+          <AffiliateBanner type="xero" className="mb-6" />
+          <AffiliateBanner type="tide" layout="compact" />
         </div>
       </div>
     </div>

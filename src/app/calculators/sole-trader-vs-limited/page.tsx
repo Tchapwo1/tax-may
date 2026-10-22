@@ -4,6 +4,7 @@ import React, { useState, useMemo } from 'react';
 import { calculateSoleTraderVsLtd } from '@/features/comparison-matrix/soleTraderVsLtdEngine';
 import { InputField } from '@/shared/components/InputField';
 import { StickySummary } from '@/shared/components/StickySummary';
+import { AffiliateBanner } from '@/shared/components/AffiliateBanner';
 import { FadeSlide } from '@/shared/components/motion/FadeSlide';
 import { AnimatedNumber } from '@/shared/components/motion/AnimatedNumber';
 import { 
@@ -167,6 +168,8 @@ export default function ComparisonMatrixPage() {
                   </p>
                 </div>
               </div>
+              <AffiliateBanner type="tide" className="mt-6" />
+              <AffiliateBanner type="xero" className="mt-6" />
             </div>
           </div>
         </div>

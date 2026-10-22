@@ -7,6 +7,7 @@ import { useLandlordComparisonStore } from '@/features/landlord/store/useLandlor
 import { LandlordComparisonPanel } from '@/features/landlord/components/LandlordComparisonPanel';
 import { InputField } from '@/shared/components/InputField';
 import { StickySummary } from '@/shared/components/StickySummary';
+import { AffiliateBanner } from '@/shared/components/AffiliateBanner';
 import { AnimatedNumber } from '@/shared/components/motion/AnimatedNumber';
 import { FadeSlide } from '@/shared/components/motion/FadeSlide';
 import { Home, PoundSterling, TrendingDown, Receipt, Save, Lock, Unlock, Calculator } from 'lucide-react';
@@ -175,6 +176,7 @@ export default function LandlordCalculatorPage() {
                   </button>
                 </div>
               </div>
+              <AffiliateBanner type="habito" className="mt-6" />
             </div>
           </div>
         </div>
